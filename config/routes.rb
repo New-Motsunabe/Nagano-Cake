@@ -22,7 +22,10 @@ Rails.application.routes.draw do
       resources :ordered_products
   end
 
-  resource :customers
+  scope module: :public do
+    resource :customers
+  end
+
   resources :products
   resources :cart_items
   resources :orders

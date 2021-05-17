@@ -10,13 +10,26 @@ class Public::Customers::RegistrationsController < Devise::RegistrationsControll
     products_path
   end
 
-  
+  def update
+    @customer = Customer.find
+    @customer.update(customer_params)
+    redirect_to customers_my_page_path
+  end
+
 
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :kana_last_name, :kana_first_name, :is_deleted, :postal_code, :residence, :phone_number])
+
+    devise_parameter_sanitizer.permit(:account_update, keys: [:last_name, :first_name, :kana_last_name, :kana_first_name, :is_deleted, :postal_code, :residence, :phone_number])
   end
+
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
+
+
   # GET /resource/sign_up
   # def new
   #   super
