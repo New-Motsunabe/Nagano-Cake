@@ -1,3 +1,24 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.home-image {
+  background-image: image-url('alexandra-gornago-_B7shfNUXEA-unsplash.jpg');
+  background-size: cover;
+  background-position: 0 1130px;
+  width: 1000px;
+  height: 350px;
+  margin:0 auto;
+  margin-top: 100px;
+}
+
+.empty {
+  height: 240px;
+}
+
+.home-introduction {
+  text-align: center;
+  background-color: rgba( 230, 230, 230, 0.7);
+  width: 400px;
+  margin: 0 auto;
+  margin-top: auto;
+}
