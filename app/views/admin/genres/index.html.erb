@@ -1,10 +1,16 @@
 <div class="container">
   <h2>ジャンル一覧・追加</h2>
   　<!--ジャンルの新規登録フォーム-->
+<<<<<<< HEAD
 
     <%= form_for @genre, :url => {:action => :create} do |f| %>
       <div class="field">
         <label for="genre_title">ジャンル名</label>
+=======
+    <%= form_with model: @genre, local: true do |f| %>
+      <div class="field">
+        <%= f.label :genre_name %><br />
+>>>>>>> 48314c8a6b83ee5aa1803bc220625e60530185ea
         <%= f.text_field :genre_name, autofocus: true, class: "genre_name" %>
       </div>
       <div class="actions">
@@ -26,7 +32,11 @@
             <td><%= genre.genre_name %></td>
           </tr>
           <tr>
+<<<<<<< HEAD
             <td><%= link_to '編集', edit_admin_genre_path(genre.id), class: "btn btn-sm btn-success edit_genre_#{genre.id}" %></td>
+=======
+            <td><%= link_to '編集', edit_genre_path(genre.id), class: "btn btn-sm btn-success edit_genre_#{genre.id}" %></td>
+>>>>>>> 48314c8a6b83ee5aa1803bc220625e60530185ea
           </tr>
         <% end %>
       </tbody>
