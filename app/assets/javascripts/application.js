@@ -10,24 +10,33 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
+//= require jquery
+//= require jquery_ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery.jpostal
 //= require_tree .
 
-
-// 住所の自動入力
-$(function () {
+$(function() {
   $(document).on('turbolinks:load', () => {
-    $('#user_postal_code').jpostal({
-      postcode: [
-        '#user_postal_code'
+    $('#customer_postal_code').jpostal({
+      postcode : [
+        '#customer_postal_code'
       ],
       address: {
-        "#user_prefecture_code": "%3",
-        "#user_city": "%4%5",
-        "#user_street": "%6%7"
+        "#customer_residence": "%3%4%5%6%7", // # 都道府県が入力される
+        // # 市区町村と町域が入力される
+         // # 大口事務所の番地と名称が入力される
       }
     });
   });
 });
+
+
+// # 入力項目フォーマット
+// #   %3  都道府県
+// #   %4  市区町村
+// #   %5  町域
+// #   %6  大口事業所の番地 ex)100-6080
+// #   %7  大口事業所の名称
+
