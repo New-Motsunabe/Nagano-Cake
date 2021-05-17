@@ -8,5 +8,6 @@ class Admin::HomesController < ApplicationController
     else
        @orders = Order.all
     end
+    @posts = posts.page(params[:page])
   end
 end
