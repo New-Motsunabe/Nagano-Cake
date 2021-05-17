@@ -1,0 +1,10 @@
+　<h2>ジャンル編集</h2>
+　<%= form_for @genre, :url => {:action => :update} do |f| %>
+      <div class="field">
+        <label for="genre_title">ジャンル名</label>
+        <%= f.text_field :genre_name, autofocus: true, class: "genre_name" %>
+      </div>
+      <div class="actions">
+          <%= f.submit "変更を保存" ,class: 'btn btn-sm btn-success' %>
+      </div>
+  <% end %>
