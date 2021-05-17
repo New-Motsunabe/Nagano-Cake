@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       resources :ordered_products
   end
 
-  resources :customers
+  resource :customers
   resources :products
   resources :cart_items
   resources :orders
