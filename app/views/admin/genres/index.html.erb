@@ -27,7 +27,9 @@
             <td><%= genre.genre_name %></td>
           </tr>
           <tr>
+
             <td><%= link_to '編集', edit_admin_genre_path(genre.id), class: "btn btn-sm btn-success edit_genre_#{genre.id}" %></td>
+
           </tr>
         <% end %>
       </tbody>
