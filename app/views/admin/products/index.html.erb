@@ -1,24 +1,32 @@
-<h2>商品一覧</h2>
-
-<table class="table">
-  <thead>
-    <tr>
-      <td>商品ID</td>
-      <td>商品名</td>
-      <td>税抜き価格</td>
-      <td>ジャンル</td>
-      <td>ステータス</td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @products. each do |product| %>
-      <tr>
-        <td><%= product.id %></td>
-        <td><%= product.name %></td>
-        <td><%= product.price %></td>
-        <td><%= product.genre.name %></td>
-        <td><%= product.is_active %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <h2>商品一覧</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>商品ID</th>
+            <th>商品名</th>
+            <th></th>
+            <th>税抜き価格</th>
+            <th>ジャンル</th>
+            <th></th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @products. each do |product| %>
+            <tr>
+              <td><%= product.id %></td>
+              <td><%= link_to product.name,admin_product(product.id)  %></td>
+              <td><%= product.price %></td>
+              <td><%= product.genre.name %></td>
+              <td><%= product.is_active %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<%= paginate @products %>
