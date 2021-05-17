@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
 
   devise_for :admins
-  devise_for :customers
+
+  # scope module: :public do
+  # namespace :public do
+  #   devise_for :customers
+  # end
+  devise_for :customers, :controllers => {
+    :registrations => 'public/customers/registrations',
+    :sessions => 'public/customers/sessions'
+  }
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin do
       resources :customers
