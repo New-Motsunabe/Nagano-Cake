@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-12">
       <h2>商品一覧</h2>
       <table class="table table-striped">
         <thead>
@@ -15,13 +15,13 @@
         <tbody>
           <% @products. each do |product| %>
             <tr class="info">
-              <td class="col-md-1"><%= product.id %></td>
+              <td class="col-md-2"><%= product.id %></td>
               <td class="col-md-3">
                 <%= link_to admin_product_path(product.id) do  %>
                   <%= product.name %>
                 <% end %>
               </td>
-              <td class="col-md-1"><%= product.price %></td>
+              <td class="col-md-2"><%= product.price %></td>
               <td class="col-md-3"><%= product.genre.name %></td>
               <td class="col-md-2">
                 <% if product.is_active == true %>
