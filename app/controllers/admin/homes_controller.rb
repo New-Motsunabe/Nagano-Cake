@@ -1,13 +1,13 @@
 class Admin::HomesController < ApplicationController
-  
+
   def top
     case params[:order_sort]
       when "1"
-       @user = User.find(params[:user_id])
-       @orders = @user.orders
+       @customer = Customer.find(params[:customer_id])
+       @orders = @customer.orders
     else
        @orders = Order.all
     end
-    @posts = posts.page(params[:page])
+    @orders = Order.page(params[:page]).reverse_order
   end
 end

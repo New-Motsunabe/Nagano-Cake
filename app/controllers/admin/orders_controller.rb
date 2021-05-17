@@ -1,19 +1,19 @@
 class Admin::OrdersController < ApplicationController
-  
+
   def show
     @order = Order.find(params[:id])
   end
-  
+
   def update
     order = Order.find(params[:id])
     order.update(order_params)
     redirect_back(fallback_location: root_path)
-  end  
-  
+  end
+
   private
-  
+
   def order_params
-    params.require(:order).permit(:order_status)
-    
-  
+    params.require(:order).permit(:order_status).merge(order_status: params[:orders][:order_status].to_i)
+  end
+
 end
