@@ -1,4 +1,5 @@
 class Admin::GenresController < ApplicationController
+
   def index
     @genres = Genre.all
     @genre = Genre.new
@@ -20,7 +21,7 @@ class Admin::GenresController < ApplicationController
   end
 
   def update
-        @genre = Genre.find(params[:id])
+    @genre = Genre.find(params[:id])
     if @genre.update(genre_params)
       flash[:success] = "ジャンルを変更しました"
       redirect_to admin_genres_path
