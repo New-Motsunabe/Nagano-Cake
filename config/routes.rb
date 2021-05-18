@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       resources :genres
       resources :ordered_products
   end
-  
+
   resources :customers
   resources :products
   resources :cart_items
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   resources :shipping_addresses
   resources :genres
   resources :ordered_products
-  
+
   get "customers/unsubscribe" => "public/customers#unsubscribe"
   patch "customers/withdraw" => "public/customers#withdraw"
 
@@ -42,5 +42,7 @@ Rails.application.routes.draw do
 
   root to: "public/homes#top"
   get "/about" => "public/homes#about"
- 
+  
+  
+
 end
