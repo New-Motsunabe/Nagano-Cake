@@ -12,8 +12,11 @@ class Public::Customers::RegistrationsController < Devise::RegistrationsControll
 
   def update
     current_customer.assign_attributes(account_update_params)
-    current_customer.save
-    redirect_to customers_my_page_path
+    if current_customer.save
+      redirect_to customers_my_page_path, notice: '編集内容を保存しました'
+    else
+      render action: :edit
+    end
   end
 
 
