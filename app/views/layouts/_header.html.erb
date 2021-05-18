@@ -1,26 +1,26 @@
 <header>
   <nav class="navbar-left">
-    <h1 class="logo"><%= image_tag 'Nagano Cake横書き.jpg', :size =>'200x80' %></h1>
+    <h1 class="logo"><%= link_to (image_tag 'Nagano Cake.jpg', :size =>'250x90'),root_path %></h1>
   </nav>
   <nav class="navbar-right">
     <% if customer_signed_in? %>
-      <li class="nav-list-item">ようこそ、<%= current_customer.last_name %>さん!</li>
-      <li class="nav-list-item"><%= link_to 'マイページ',  customers_my_page_path %></li>
-      <li class="nav-list-item"><%= link_to '商品一覧',  customers_my_page_path %></li>
-      <li class="nav-list-item"><%= link_to 'カート',  customers_my_page_path %></li>
-      <li class="nav-list-item"><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete %></li>
+      <li class="welcome-message">ようこそ、<%= current_customer.last_name %>さん!</li>
+      <li><%= link_to 'マイページ', customers_my_page_path,class:"nav-list-item" %></li>
+      <li><%= link_to '商品一覧',  customers_my_page_path,class:"nav-list-item" %></li>
+      <li><%= link_to 'カート',  customers_my_page_path,class:"nav-list-item" %></li>
+      <li><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete,class:"nav-list-item" %></li>
     <% elsif admin_signed_in? %>
-      <li class="nav-list-item"><%= link_to '商品一覧',  customers_my_page_path %></li>
-      <li class="nav-list-item"><%= link_to '会員一覧',  customers_my_page_path %></li>
-      <li class="nav-list-item"><%= link_to '注文履歴一覧',  customers_my_page_path %></li>
-      <li class="nav-list-item"><%= link_to 'ジャンル一覧',  customers_my_page_path %></li>
-      <li class="nav-list-item"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
+      <li><%= link_to '商品一覧',  customers_my_page_path,class:"nav-list-item" %></li>
+      <li><%= link_to '会員一覧',  customers_my_page_path,class:"nav-list-item" %></li>
+      <li><%= link_to '注文履歴一覧',  customers_my_page_path,class:"nav-list-item" %></li>
+      <li><%= link_to 'ジャンル一覧',  customers_my_page_path,class:"nav-list-item" %></li>
+      <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete,class:"nav-list-item" %></li>
 
     <% else %>
-      <li class="nav-list-item"><%= link_to ' About',  about_path %></li>
-      <li class="nav-list-item"><%= link_to ' 商品一覧', products_path %></li>
-      <li class="nav-list-item"><%= link_to ' 新規登録', new_customer_registration_path %></li>
-      <li class="nav-list-item"><%= link_to ' ログイン', new_customer_session_path %></li>
+      <li><%= link_to ' About',  about_path,class:"nav-list-item" %></li>
+      <li><%= link_to ' 商品一覧', products_path,class:"nav-list-item" %></li>
+      <li><%= link_to ' 新規登録', new_customer_registration_path,class:"nav-list-item" %></li>
+      <li><%= link_to ' ログイン', new_customer_session_path,class:"nav-list-item" %></li>
     <% end %>
   </nav>
 

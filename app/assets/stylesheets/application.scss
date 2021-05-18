@@ -17,16 +17,24 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+body {
+  background-image: image-url('23bdd170f5367db7fe6d6d9310a21cee.png');
+  background-color: rgba( 230, 230, 230, 0.7);
+}
+
 header {
-background-color: #efe2d5;
-width: 100%;
-height: 80px;
-display: flex;
+  background-color: #502e2e;
+  width: 100%;
+  height: 100px;
+  display: flex;
 }
 
 .navbar-right {
   display: flex;
   list-style: none;
+  margin: 0 0 0 auto;
+  margin-right: 30px;
+  margin-top: 35px;
 }
 
 .logo {
@@ -34,7 +42,31 @@ display: flex;
 }
 
 .nav-list-item {
-  
+  margin: 10px;
+  color: #efe2d5;
+  font-size: 20px;
+  font-family: 'Kosugi Maru', sans-serif;
 }
 
+.welcome-message {
+  color: #efe2d5;
+  font-size: 20px;
+  font-family: 'Kosugi Maru', sans-serif;
+  margin-right: 30px;
+}
 
+footer {
+  width: 100%;
+  height: 70px;
+  background-color: #502e2e;
+  bottom: 0;
+  margin-top: 50px;
+  position: absolute;
+}
+
+.footer-text {
+  font-family: 'Kosugi Maru', sans-serif;
+  color: #efe2d5;
+  margin-top: 30px;
+  font-size: 15px;
+}
