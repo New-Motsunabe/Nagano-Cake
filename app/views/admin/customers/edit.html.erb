@@ -1,11 +1,12 @@
 <script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
 
-<h2><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h2>
+<div class="container">
+<h3><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h3>
 
 <%= form_with model:@customer, url:admin_customer_path, local:true do |f| %>
 
 
-　<table>
+　<table class="table">
 　  <tr>
 　    <th>会員ID</th>
 　    <td><%= @customer.id %></td>
@@ -58,3 +59,4 @@
     </tr>
   </table>
 <% end %>
+</div>
