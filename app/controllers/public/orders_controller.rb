@@ -4,21 +4,24 @@ class Public::OrdersController < ApplicationController
     @order = Order.new
     @customer = current_customer
   end
+  
+  def confirm
+    @order = Order.find(params[:id])
+    @ordered_product = OrderedProduct.find(params[:ordered_product.id])
+    redirect_to orders_path
+  end
 
   def create
-    order = Order.new(order_params)
+    @order = Order.find(params[:id])
+    @ordered_product = OrderedProduct.find(params[:ordered_product.id])
     order.save
-    redirect_to orders_confirm_path
+    redirect_to orders_complete_path
   end
 
   def index
   end
 
   def show
-  end
-
-  def confirm
-    @order = Order.find(params[:id])
   end
 
   def complete
