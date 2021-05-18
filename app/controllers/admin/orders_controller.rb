@@ -2,7 +2,7 @@ class Admin::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @total_price = @order.order_products.sum(:ta_price)
+    @total_price = @order.order_products.sum(:tax_price)
   end
 
   def update
@@ -14,7 +14,7 @@ class Admin::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:order_status).merge(order_status: params[:orders][:order_status].to_i)
+    params.require(:order).permit(:order_status)
   end
 
 end

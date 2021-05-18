@@ -7,11 +7,10 @@ ja:
     working: 製作中
     preparation: 発送準備中
     shipping: 発送済み
-    
+
   ordered_product:
    work_status:
     cannot: 制作不可
     wait: 制作待ち
     make: 製作中
     finish: 制作
-    
