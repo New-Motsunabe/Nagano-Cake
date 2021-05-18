@@ -1,0 +1,27 @@
+<body class="top">
+	<div class="container">
+		<div class="row">
+			<h1 class="welcome">Welcome NaganoCake</h1>
+			<div class = "home-image">
+				<div class="empty"></div>
+				<p class="home-introduction">
+				  このサイトは、ケーキ販売のECサイトになります。<br>
+				  会員でない方も商品の閲覧はできますが、<br>
+				  購入には会員登録が必要になります。<br>
+				</p>
+			</div>
+		</div>
+	        <h2 class="toppage-head">オススメ商品</h2>
+				<!-- ランダムに4つ表示されるようになっています -->
+				<div class="recommended-products">
+					<% @products.first(5). each do |product| %>
+					   <%= attachment_image_tag(product, :image, size: "340x220", fallback: "Nagano Cake" ) %>
+					   <%= product.name %>
+					   <%= product.price %>
+					<% end %>
+				</div>
+				<div class="col-xs-12">
+					<%= link_to "もっと見る", products_path, class: "btn-link  pull-right" %>
+				</div>
+	</div>
+</body>
