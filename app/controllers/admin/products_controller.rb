@@ -31,11 +31,10 @@ class Admin::ProductsController < ApplicationController
       redirect_to admin_product_path(@product.id)
     else
       render "edit"
-      
+    end
   end
-  
-   private
 
+   private
   def product_params
     params.require(:product).permit(:genre_id, :name, :introduction, :price, :is_active, :image)
   end
