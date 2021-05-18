@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   resources :products
   resources :cart_items
   resources :orders
-  resources :shipping_addresses
+
   resources :genres
   resources :ordered_products
 
@@ -57,5 +57,10 @@ Rails.application.routes.draw do
   root to: "public/homes#top"
   get "/about" => "public/homes#about"
 
+get "shipping_addresses" => "public/shipping_addresses#index"
+post "shipping_addresses" => "public/shipping_addresses#create"
+get "shipping_addresses/:id/edit" => "public/shipping_addresses#edit"
+patch "shipping_addresses/:id" => "public/shipping_addresses#update"
+delete "shipping_addresses/:id" => "public/shipping_addresses#destroy"
 
 end

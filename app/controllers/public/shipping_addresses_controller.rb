@@ -26,5 +26,3 @@ class Public::ShippingAddressesController < ApplicationController
   end
 
 end
-
-end
