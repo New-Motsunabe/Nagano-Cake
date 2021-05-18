@@ -2,6 +2,7 @@ class Admin::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @total_price = @order.order_products.sum(:ta_price)
   end
 
   def update
