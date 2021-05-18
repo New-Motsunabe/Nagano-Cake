@@ -16,8 +16,8 @@
           <p>ジャンル    <%= @product.genres.name %></p>
         </div><br>
         <div class="field">
-          <p>税込価格    <%= tax_price(@product.price) %></p>
-          <p>(税抜き価格)    <%= @product.price %></p>
+          <p>税込価格    <%= tax_price(@product.price).to_s(:delimited) %></p>
+          <p>(税抜き価格)    <%= @product.price.to_s(:delimited) %></p>
         </div><br>
         <div class="field">
           <p>販売ステータス
