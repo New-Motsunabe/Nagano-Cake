@@ -16,3 +16,25 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+header {
+background-color: #efe2d5;
+width: 100%;
+height: 80px;
+display: flex;
+}
+
+.navbar-right {
+  display: flex;
+  list-style: none;
+}
+
+.logo {
+  margin-left: 20px;
+}
+
+.nav-list-item {
+  
+}
+
+
