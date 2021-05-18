@@ -10,6 +10,11 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
+
 //= require jquery
 //= require jquery_ujs
 //= require activestorage
@@ -40,6 +45,3 @@ $(function() {
 // #   %6  大口事業所の番地 ex)100-6080
 // #   %7  大口事業所の名称
 
-//= require jquery3
-//= require popper
-//= require bootstrap-sprockets

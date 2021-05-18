@@ -11,6 +11,12 @@ Rails.application.routes.draw do
     :sessions => 'public/customers/sessions'
   }
 
+  # devise_scope :customer do
+  #   get 'customers/registrations/edit' => 'public/customers/registrations#edit'
+  #   patch 'customers/registrations' => 'public/customers/registrations#update'
+  #   put 'customers/registrations' => 'public/customers/registrations#update'
+  #   delete 'customers/registrations' => 'public/customers/registrations#destroy'
+  # end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin do
       resources :customers
@@ -23,7 +29,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    resource :customers
+    resource :customers, except: [:show, :edit, :destroy, :create]
   end
 
   resources :products
