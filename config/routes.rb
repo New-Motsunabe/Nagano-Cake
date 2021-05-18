@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    resource :customers, except: [:show, :edit, :destroy, :create]
+    resource :customers
   end
 
   resources :products
@@ -41,6 +41,7 @@ Rails.application.routes.draw do
 
   get "customers/unsubscribe" => "public/customers#unsubscribe"
   patch "customers/withdraw" => "public/customers#withdraw"
+  put "customers/withdraw" => "public/customers#withdraw"
 
   delete "cart_items/destroy_all" => "public/cart_items#destroy_all"
 

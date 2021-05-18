@@ -11,6 +11,14 @@ class Public::Customers::SessionsController < Devise::SessionsController
     new_customer_session_path
   end
 
+  def reject_inactive_customer
+    @customer = Customer.find_by(email: params[:customer][:email])
+    if @customer
+      if @customer.valid_password?(params[:customer][:password]) && !@customer.is_valid
+        redirect_to new_customer_session_path
+      end
+    end
+  end
 
   # GET /resource/sign_in
   # def new
