@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   resources :ordered_products
 
   get "customers/unsubscribe" => "public/customers#unsubscribe"
-  patch "customers/withdraw" => "public/customers#withdraw"
+  #patch "customers/withdraw" => "public/customers#withdraw"
   put "customers/withdraw" => "public/customers#withdraw"
 
   delete "cart_items/destroy_all" => "public/cart_items#destroy_all"
