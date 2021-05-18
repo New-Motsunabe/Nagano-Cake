@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :admins
+  devise_for :admin, :controllers => {
+    :registrations => 'admin/registrations',
+    :sessions => 'admin/sessions'
+  }
 
   # scope module: :public do
   # namespace :public do
