@@ -11,6 +11,12 @@ Rails.application.routes.draw do
     :sessions => 'public/customers/sessions'
   }
 
+  # devise_scope :customer do
+  #   get 'customers/registrations/edit' => 'public/customers/registrations#edit'
+  #   patch 'customers/registrations' => 'public/customers/registrations#update'
+  #   put 'customers/registrations' => 'public/customers/registrations#update'
+  #   delete 'customers/registrations' => 'public/customers/registrations#destroy'
+  # end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin do
       resources :customers
@@ -22,7 +28,14 @@ Rails.application.routes.draw do
       resources :ordered_products
   end
 
+
   resources :customers
+
+  scope module: :public do
+    resource :customers
+  end
+
+
   resources :products
   resources :cart_items
   resources :orders
@@ -32,6 +45,7 @@ Rails.application.routes.draw do
 
   get "customers/unsubscribe" => "public/customers#unsubscribe"
   patch "customers/withdraw" => "public/customers#withdraw"
+  put "customers/withdraw" => "public/customers#withdraw"
 
   delete "cart_items/destroy_all" => "public/cart_items#destroy_all"
 
@@ -42,7 +56,6 @@ Rails.application.routes.draw do
 
   root to: "public/homes#top"
   get "/about" => "public/homes#about"
-  
-  
+
 
 end
