@@ -41,7 +41,6 @@ Rails.application.routes.draw do
 
   resources :products
   resources :cart_items
-  resources :orders
   
   resources :genres
   resources :ordered_products
@@ -52,6 +51,11 @@ Rails.application.routes.draw do
 
   delete "cart_items/destroy_all" => "public/cart_items#destroy_all"
 
+
+  get "orders/new" => "public/orders#new"
+  get "orders" => "public/orders#index"
+  get "orders/:id" => "public/orders#show"
+  post "orders" => "public/orders#create"
   post "orders/confirm" => "public/orders#confirm"
   get "orders/complete" => "public/orders#complete"
 
