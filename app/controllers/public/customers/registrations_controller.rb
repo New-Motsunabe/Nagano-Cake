@@ -7,11 +7,13 @@ class Public::Customers::RegistrationsController < Devise::RegistrationsControll
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_up_path_for(resource)
-    products_path
+    customers_my_page_path
   end
 
-  def after_sign_in_path_for(resource)
-    products_path
+  def update
+    current_customer.assign_attributes(account_update_params)
+    current_customer.save
+    redirect_to customers_my_page_path
   end
 
 
@@ -19,7 +21,19 @@ class Public::Customers::RegistrationsController < Devise::RegistrationsControll
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :kana_last_name, :kana_first_name, :is_deleted, :postal_code, :residence, :phone_number])
+
+    devise_parameter_sanitizer.permit(:account_update, keys: [:last_name, :first_name, :kana_last_name, :kana_first_name, :is_deleted, :postal_code, :residence, :phone_number])
   end
+
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:last_name, :first_name, :kana_last_name, :kana_first_name, :is_deleted, :postal_code, :residence, :phone_number])
+  end
+  
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
+
+
   # GET /resource/sign_up
   # def new
   #   super
