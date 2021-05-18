@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>商品編集</h2>
+      <%= form_for(@product, url: {action: "update"}, method: :patch, class: "form-horizontal") do |f| %>
+
+        <div class="edit-form-group">
+          <p><%= f.label :商品画像 %>
+          <%= f.attachment_field :image, class: "form-control-file product_image" %></p>
+        </div>
+
+        <div class="edit-form-group">
+          <p><%= f.label :商品名 %>
+          <%= f.text_field :name, autofocus: true, class: "form-control name" %></p>
+        </div>
+
+        <div class="edit-form-group">
+          <p><%= f.label :商品説明 %>
+          <%= f.text_area :introduction, autofocus: true, class: "form-control introduction" %></p>
+        </div>
+
+        <div class="edit-form-group">
+          <p><%= f.label :ジャンル %>
+          <%= f.collection_select :genre_id, Genre.all, :id, :name, class: "form-control genre_id" %></p>
+        </div>
+        <!--Genre.allでジャンルテーブルの情報を取得-->
+
+        <div class="edit-form-group">
+          <p><%= f.label :税抜き価格 %>
+          <%= f.text_field :price, autofocus: true, class: "form-control price" %></p>
+        </div>
+
+        <div class="edit-form-group">
+          <p><%= f.label :販売ステータス %>
+          <%= f.select :is_active, ["販売中", "販売停止"], class: "form-control is_active" %></p>
+        </div>
+
+        <div class="edit-form-group">
+          <%= f.submit "変更を保存", class: "btn btn-secondary" %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
+<!--レイアウトがまだ整っていません-->
