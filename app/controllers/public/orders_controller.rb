@@ -16,6 +16,6 @@ class Public::OrdersController < ApplicationController
   end
   
   def cpmplete
-    
+  end  
   
 end
