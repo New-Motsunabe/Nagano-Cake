@@ -7,12 +7,13 @@
       <th>数量</th>
       <th>小計</th>
     </tr>
-
+    
   </thead>
 </table>
 
 <%#= form_with model:@order,local:true do |f| %>
-<diV><%= @order.payment_method %></diV>
-<diV><%= @order.residence %></diV>
-<diV><%= @order.address_name %></diV>
+<div><%= @order.payment_method %></div>
+<div><%= @order.postal_code %></div>
+<div><%= @order.residence %></div>
+<div><%= @order.address_name %></div>
 <%# end %>
