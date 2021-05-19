@@ -36,17 +36,18 @@ Rails.application.routes.draw do
     resource :customers
     resources :shipping_addresses
     resources :products
+    resources :cart_items
   end
-  
-  resources :cart_items
+
+  # resources :cart_items
   resources :orders
   resources :ordered_products
-  
+
   get "customers/unsubscribe" => "public/customers#unsubscribe"
   patch "customers/withdraw" => "public/customers#withdraw"
   post "customers/withdraw" => "public/customers#withdraw"
 
-  delete "cart_items/destroy_all" => "public/cart_items#destroy_all"
+  delete "cart_items/destroy_all" => "public/cart_items#destroy_all", as: "cart_items_destroy_all"
 
   post "orders/confirm" => "public/orders#confirm"
   get "orders/complete" => "public/orders#complete"
