@@ -1,3 +1,56 @@
 // Place all the styles related to the public/customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+  margin: 0;
+  padding: 0;
+  boxing-sizing: border-box;
+}
+
+.my_page_tag {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.my_page_edit_link {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.table {
+  margin-bottom: 50px;
+}
+
+.shipping_adresses_link {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.ordered_link {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.link_button {
+  margin-left: 50px;
+}
+
+.my_page {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.unsubscribe_message {
+  text-align: center;
+  padding-top: 100px;
+}
+
+
+.unsubscribe_title {
+  margin-bottom: 50px;
+}
+
+.unsubscribe_body {
+  margin-bottom: 50px;
+}
