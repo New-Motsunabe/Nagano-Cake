@@ -8,6 +8,19 @@
   boxing-sizing: border-box;
 }
 
+//新規会員登録画面
+.sign_up_tag {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+//ログイン画面
+.log_in_tag {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+//マイページ
 .my_page_tag {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -36,11 +49,13 @@
   margin-left: 50px;
 }
 
+//会員情報編集画面
 .my_page {
   margin-top: 50px;
   margin-bottom: 50px;
 }
 
+//退会確認画面
 .unsubscribe_message {
   text-align: center;
   padding-top: 100px;
