@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
 
   devise_for :admin, :controllers => {
@@ -36,51 +37,11 @@ Rails.application.routes.draw do
     resources :shipping_addresses
     resources :products
   end
+  
   resources :cart_items
   resources :orders
-Rails.application.routes.draw do
-
-  devise_for :admin, :controllers => {
-    :registrations => 'admin/registrations',
-    :sessions => 'admin/sessions'
-  }
-
-  # scope module: :public do
-  # namespace :public do
-  #   devise_for :customers
-  # end
-  devise_for :customers, :controllers => {
-    :registrations => 'public/customers/registrations',
-    :sessions => 'public/customers/sessions'
-  }
-
-  # devise_scope :customer do
-  #   get 'customers/registrations/edit' => 'public/customers/registrations#edit'
-  #   patch 'customers/registrations' => 'public/customers/registrations#update'
-  #   put 'customers/registrations' => 'public/customers/registrations#update'
-  #   delete 'customers/registrations' => 'public/customers/registrations#destroy'
-  # end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  namespace :admin do
-      resources :customers
-      resources :products
-      resources :cart_items
-      resources :orders
-      resources :shipping_addresses
-      resources :genres
-      resources :ordered_products
-  end
-
-  scope module: :public do
-    resource :customers
-    resources :shipping_addresses
-    resources :products
-  end
-  resources :cart_items
-  resources :orders
-<<<<<<< HEAD
-
   resources :ordered_products
+  
   get "customers/unsubscribe" => "public/customers#unsubscribe"
   patch "customers/withdraw" => "public/customers#withdraw"
   post "customers/withdraw" => "public/customers#withdraw"
