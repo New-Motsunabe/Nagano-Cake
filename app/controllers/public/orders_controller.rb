@@ -3,11 +3,11 @@ class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
     @customer = current_customer
+
   end
-  
+
   def confirm
-    @order = Order.find(params[:id])
-    @ordered_product = OrderedProduct.find(params[:ordered_product.id])
+    @order = Order.new(order_params)
     redirect_to orders_path
   end
 
