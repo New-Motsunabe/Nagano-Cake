@@ -33,10 +33,11 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resource :customers
+    resources :products
   end
 
 
-  resources :products
+
   resources :cart_items
   resources :orders
 
