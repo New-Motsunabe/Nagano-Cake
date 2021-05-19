@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <%=  attachment_image_tag(@product), :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %>
+      <h2><%= @product.name %></h2>
+      <p><%= @product.introduction %></p>
+      <p>¥<%= product.tax_price.to_s(:delimited) %><span>(税込)</span></p>
+    </div>
+    <div class="col-md-5">
+      <%= form_for @cart_item, url: cart_items_path(@cart_item), do |f| %>
+        <div class="customer-show-form-group">
+          <%= f.select :amount, placeholder: "個数選択" %>
+        </div>
+        <div class="customer-show-form-group">
+          <%= f.submit "カートに入れる" ,class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
