@@ -3,8 +3,8 @@
     <thead>
         <tr class="info">
             <th>郵便番号</th>
-            <th>住所</th>
             <th>宛名</th>
+            <th>住所</th>
             <th colspan="2"></th>
         </tr>
     </thead>
@@ -16,10 +16,10 @@
                 <%= shipping_address.postal_code %>
             </td>
             <td class="text-left">
-                <%= shipping_address.residence %>
+                <%= shipping_address.address_name %>
             </td>
             <td class="text-left">
-                <%= shipping_address.address_name %>
+                <%= shipping_address.residence %>
             </td>
             <td>
                 <%= link_to "編集する","/shipping_addresses/#{shipping_address.id}/edit", class: "glyphicon glyphicon-pencil btn-sm btn-primary" %>
