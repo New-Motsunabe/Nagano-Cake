@@ -1,8 +1,11 @@
 class Product < ApplicationRecord
-  has_many :genres, dependent: :destroy
+  
+   
+  belongs_to :genre
   has_many :ordered_products, dependent: :destroy
 
-   attachment :image, destroy: false
+   
+  attachment :image, destroy: false
 
   validates :genre_id, presence: true
   validates :name, presence: true

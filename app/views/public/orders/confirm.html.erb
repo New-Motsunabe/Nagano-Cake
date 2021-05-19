@@ -7,15 +7,12 @@
       <th>数量</th>
       <th>小計</th>
     </tr>
-    <tbody>
-      <% @order each do |order| %>
-      <tr>
-        <td><%= order.ordered_products.name %></td>
-        <td><%= order.tax_price %></td>
-        <td><%= order.ordered_products.amount %></td>
-        <td><%= order.tax_price*ordered_products.amount %></td>
-      </tr>
-      <% end %>
-    </tbody>
+
   </thead>
 </table>
+
+<%#= form_with model:@order,local:true do |f| %>
+<diV><%= @order.payment_method %></diV>
+<diV><%= @order.residence %></diV>
+<diV><%= @order.address_name %></diV>
+<%# end %>
