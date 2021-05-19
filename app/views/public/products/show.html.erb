@@ -6,12 +6,12 @@
       <p><%= @product.introduction %></p>
       <p>¥<%= product.tax_price.to_s(:delimited) %><span>(税込)</span></p>
     </div>
-    <div class="col-md-5">
-      <%= form_for @cart_item, url: cart_items_path(@cart_item), do |f| %>
-        <div class="customer-show-form-group">
+    <div class="cart-field col-md-5">
+      <%= form_for @cart_item, url: cart_items_path(@cart_item), method: :post do |f| %>
+        <div class="cart-form-group">
           <%= f.select :amount, placeholder: "個数選択" %>
         </div>
-        <div class="customer-show-form-group">
+        <div class="cart-form-group">
           <%= f.submit "カートに入れる" ,class: 'btn btn-primary' %>
         </div>
       <% end %>
