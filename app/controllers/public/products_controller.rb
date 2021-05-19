@@ -4,4 +4,9 @@ class Public::ProductsController < ApplicationController
     @quantity = Product.count
   end
 
+  def show
+    @product = Product.find(prams[:id])
+    @cart_item = CartItem.new
+  end
+
 end
