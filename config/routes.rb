@@ -36,14 +36,13 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resource :customers
+    resources :shipping_addresses
   end
 
 
   resources :products
   resources :cart_items
   resources :orders
-  
-  resources :genres
   resources :ordered_products
 
   get "customers/unsubscribe" => "public/customers#unsubscribe"
@@ -59,11 +58,5 @@ Rails.application.routes.draw do
 
   root to: "public/homes#top"
   get "/about" => "public/homes#about"
-
-get "shipping_addresses" => "public/shipping_addresses#index"
-post "shipping_addresses" => "public/shipping_addresses#create"
-get "shipping_addresses/:id/edit" => "public/shipping_addresses#edit"
-patch "shipping_addresses/:id" => "public/shipping_addresses#update"
-delete "shipping_addresses/:id" => "public/shipping_addresses#destroy"
 
 end
