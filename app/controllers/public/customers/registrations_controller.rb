@@ -12,8 +12,11 @@ class Public::Customers::RegistrationsController < Devise::RegistrationsControll
 
   def update
     current_customer.assign_attributes(account_update_params)
-    current_customer.save
-    redirect_to customers_my_page_path
+    if current_customer.save
+      redirect_to customers_my_page_path, notice: '編集内容を保存しました'
+    else
+      render action: :edit
+    end
   end
 
 
@@ -28,7 +31,7 @@ class Public::Customers::RegistrationsController < Devise::RegistrationsControll
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update, keys: [:last_name, :first_name, :kana_last_name, :kana_first_name, :is_deleted, :postal_code, :residence, :phone_number])
   end
-  
+
   def update_resource(resource, params)
     resource.update_without_password(params)
   end

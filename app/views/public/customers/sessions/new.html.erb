@@ -1,27 +1,32 @@
-<h2>ログイン</h2>
 
-<h3>会員の方はこちらからログイン</h3>
-<%= form_with model:@customer, url: customer_session_path, local: true do |f| %>
+<div class="container">
 
-  <table>
-    <tr>
-      <th>メールアドレス</th>
-      <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-    </tr>
+  <h2>ログイン</h2>
 
-    <tr>
-      <th>パスワード</th>
-      <td><%= f.password_field :password, autocomplete: "current-password" %></td>
-    </tr>
+  <h3>会員の方はこちらからログイン</h3>
+  <%= form_with model:@customer, url: customer_session_path, local: true do |f| %>
+
+    <table class="table">
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+      </tr>
+
+      <tr>
+        <th>パスワード</th>
+        <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+      </tr>
 
 
-    <tr>
-      <th></th>
-      <td><%= f.submit "ログイン" %></td>
-    </tr>
+      <tr>
+        <th></th>
+        <td><%= f.submit "ログイン" %></td>
+      </tr>
 
-  </table>
-<% end %>
+    </table>
+  <% end %>
 
-<h3>会員登録がお済みでない方</h3>
-<%= link_to 'こちら', new_customer_registration_path %>から新規登録を行ってください。
+  <h3>会員登録がお済みでない方</h3>
+  <%= link_to 'こちら', new_customer_registration_path %>から新規登録を行ってください。
+
+</div>
