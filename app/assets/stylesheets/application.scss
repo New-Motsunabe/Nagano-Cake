@@ -17,9 +17,17 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+main {
+  background-color: rgba( 250, 250, 250, 0.9);
+  width: 80%;
+  margin: 0 auto;
+  padding: 50px 20px 20px 50px;
+  margin-bottom: 70px;
+  margin-top: 50px;
+}
+
 body {
   background-image: image-url('23bdd170f5367db7fe6d6d9310a21cee.png');
-  background-color: rgba( 230, 230, 230, 0.7);
 }
 
 header {
@@ -46,7 +54,14 @@ header {
   color: #efe2d5;
   font-size: 20px;
   font-family: 'Kosugi Maru', sans-serif;
+  text-decoration: none;
 }
+
+.nav-list-item:hover {
+  color: white
+}
+
+
 
 .welcome-message {
   color: #efe2d5;
@@ -59,9 +74,8 @@ footer {
   width: 100%;
   height: 70px;
   background-color: #502e2e;
-  bottom: 0;
   margin-top: 50px;
-  position: absolute;
+  height: 50px;
 }
 
 .footer-text {
@@ -69,4 +83,10 @@ footer {
   color: #efe2d5;
   margin-top: 30px;
   font-size: 15px;
+  text-align: center;
 }
+
+h2 {
+  font-family: 'Kosugi Maru', sans-serif;
+}
+

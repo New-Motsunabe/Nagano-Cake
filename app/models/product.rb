@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+<<<<<<< HEAD
   has_many :genres, dependent: :destroy
   has_many :ordered_products, dependent: :destroy
 
@@ -6,6 +7,11 @@ class Product < ApplicationRecord
   attachment :image, destroy: false
 =======
    attachment :image, destroy: false
+=======
+  belongs_to :genres, dependent: :destroy
+
+  attachment :image, destroy: false
+>>>>>>> origin/develop
    
   validates :genre_id, presence: true
   validates :name, presence: true
