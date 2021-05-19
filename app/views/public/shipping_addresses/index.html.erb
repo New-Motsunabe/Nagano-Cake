@@ -1,8 +1,9 @@
-<main>
+
   <h2>配送先一覧・追加</h2>
  <div class="container shipping-container">
 
-      <%= form_with(model: @shipping_address, :url => {:controller => "public/shipping_addresses"}) do |f| %>
+      <%= form_with model: @shipping_address,url: shipping_addresses_path,local: true do |f| %>
+      
 
         <table class="shipping_addres">
             <tr class="form-group">
@@ -29,4 +30,4 @@
           <%= render "index", shipping_addresses: @shipping_addresses %>
         </div>
    </div>
- </main>
+

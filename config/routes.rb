@@ -54,6 +54,7 @@ Rails.application.routes.draw do
     resources :cart_items
     resources :ordered_products
   end
+  
 
   get "customers/unsubscribe" => "public/customers#unsubscribe"
   patch "customers/withdraw" => "public/customers#withdraw"
