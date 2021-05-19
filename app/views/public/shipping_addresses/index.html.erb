@@ -1,7 +1,7 @@
 
   <h2>配送先一覧・追加</h2>
  <div class="container shipping-container">
-
+      <%= render 'layouts/errors', obj: @shipping_address %>
       <%= form_with model: @shipping_address,url: shipping_addresses_path,local: true do |f| %>
       
 

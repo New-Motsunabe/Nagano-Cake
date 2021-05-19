@@ -3,6 +3,8 @@
   <div class="container genre-container">
     <div class="genre-row">
     　<!--ジャンルの新規登録フォーム-->
+    　<%= render 'layouts/errors', obj: @genre %>
+    　
     　<%= form_with model: @genre,url: admin_genres_path,local: true do |f| %>
         <table>
           <tr class="field">
@@ -15,6 +17,7 @@
         </table>
       <% end %>
     </div>
+    
       <!--ジャンル一覧 -->
       <table class="table table-hover table-inverse table-bordered">
         <thead>

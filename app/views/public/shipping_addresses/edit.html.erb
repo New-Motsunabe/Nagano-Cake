@@ -1,6 +1,7 @@
 
     <h2>配送先住所変更</h2>
    <div class="container shipping-container">
+    <%= render 'layouts/errors', obj: @shipping_address %>
     <%= form_with model: @shipping_address,url: shipping_address_path,local: true do |f| %>
    
       <table class="shipping_addres">
@@ -24,4 +25,8 @@
         </tr>
       </table>
     <% end %>
+    
+    <div class="shipping-back col-xs-12">
+        <%= link_to "配送先登録/一覧へ戻る", shipping_addresses_path %>
+    </div>
   </div>

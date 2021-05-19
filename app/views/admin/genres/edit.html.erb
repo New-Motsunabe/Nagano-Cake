@@ -1,7 +1,7 @@
 
     <h2>ジャンル編集</h2>
     　<div class="container genre-container">
-
+          <%= render 'layouts/errors', obj: @genre %>
         　<%= form_with model: @genre,url: admin_genre_path,local: true do |f| %>
             <table>
                 <tr class="field">
@@ -13,6 +13,9 @@
                 </tr>
             </table>
             <% end %>
+      <div class="col-xs-12 return-btn">
+        <%= link_to "戻る", admin_genres_path %>
+      </div>
     　</div>
 
 

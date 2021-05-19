@@ -15,7 +15,7 @@
 				<!-- ランダムに4つ表示されるようになっています -->
 				<div class="recommended-products">
 					<% @products.first(5). each do |product| %>
-					   <%= attachment_image_tag(product, :image, size: "340x220", fallback: "Nagano Cake" ) %>
+					   <%= attachment_image_tag(product, :image, size: "340x220", fallback: "Nagano Cake.png" ) %>
 					   <%= product.name %>
 					   <%= product.price %>
 					<% end %>
