@@ -1,11 +1,12 @@
-<div class="container">
+<div class="container product-show-container">
   <h2>商品詳細</h2>
   <div class="row">
     <div class="col-md-12">
+     <div class="product-info">
       <div class="col-md-5">
-        <%=  attachment_image_tag(@product, :image, :fill, 100, 100, fallback: "Nagano Cake.png") %>
+        <%=  attachment_image_tag(@product, :image, :fill, 300, 300, fallback: "Nagano Cake.png") %>
       </div>
-      <div class="col-md-7">
+        <div class="col-md-7">
         <div class="field">
           <p>商品名    <%= @product.name %></p>
         </div><br>
@@ -29,10 +30,12 @@
           <% end %>
           </p>
         </div>
-        	<div class="actions col-xs-9">
-	      		<%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-success pull-right" %>
-      	  </div>
+      </div>
       </div>
     </div>
   </div>
+          <div class="edit-btn">
+	      		<%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-success pull-right" %>
+      	  </div>
+
 </div>
