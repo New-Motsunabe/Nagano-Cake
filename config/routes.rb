@@ -48,13 +48,14 @@ Rails.application.routes.draw do
       resources :ordered_products
   end
 
+
   scope module: :public do
     resource :customers
     resources :products
     resources :cart_items
     resources :ordered_products
   end
-  
+
 
   get "customers/unsubscribe" => "public/customers#unsubscribe"
   patch "customers/withdraw" => "public/customers#withdraw"
