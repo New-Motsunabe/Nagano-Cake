@@ -13,9 +13,10 @@ class Public::OrdersController < ApplicationController
      @order.postal_code = current_customer.postal_code
      @order.address_name = current_customer.last_name + current_customer.first_name
     elsif params[:order][:residence_option] == "1"
-     @order.residence = current_customer.shipping_address.residence
-     @order.postal_code = current_customer.shipping_address.postal_code
-     @order.address_name = current_customer.shipping_address.address_name
+     @shipping_addresses = ShippingAddress.find_by(params[:order][:shipping_address_id])
+     @order.residence = @shipping_addresses.residence
+     @order.postal_code = @shipping_addresses.postal_code
+     @order.address_name = @shipping_addresses.address_name
     else
      @order.residence = params[:order][:residence]
      @order.postal_code = params[:order][:postal_code]
@@ -25,10 +26,13 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.find(params[:id])
-    @ordered_product = OrderedProduct.find(params[:ordered_product.id])
-    order.save
+    @order = Order.new(order_params)
+    #@ordered_product = OrderedProduct.find(params[:ordered_product.id])
+    @order.save
     redirect_to orders_complete_path
+  end
+  
+  def complete
   end
 
   def index
@@ -37,8 +41,6 @@ class Public::OrdersController < ApplicationController
   def show
   end
 
-  def complete
-  end
 
   private
 

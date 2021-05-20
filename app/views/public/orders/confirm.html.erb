@@ -11,9 +11,16 @@
   </thead>
 </table>
 
-<%#= form_with model:@order,local:true do |f| %>
-<div><%= @order.payment_method %></div>
-<div><%= @order.postal_code %></div>
-<div><%= @order.residence %></div>
-<div><%= @order.address_name %></div>
-<%# end %>
+<p>支払い方法</p><%= @order.payment_method %>
+<p>お届け先</p><p>〒<%= @order.postal_code %></p><%= @order.residence %><br>
+<%= @order.address_name %>
+
+<%= form_with model:@order,url: orders_path,method: :post,local:true do |f| %>
+<%= f.hidden_field :payment_method, value: @order.payment_method %>
+<%= f.hidden_field :postal_code, value: @order.postal_code%>
+<%= f.hidden_field :residence, value: @order.residence %>
+<%= f.hidden_field :address_name, value: @order.address_name %>
+<%= f.submit "注文を確定する" %>
+<% end %>
+
+<%#= link_to "注文を確定する",orders_path,method: :post %>
