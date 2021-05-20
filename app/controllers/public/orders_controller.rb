@@ -27,18 +27,24 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
     #@ordered_product = OrderedProduct.find(params[:ordered_product.id])
     @order.save
     redirect_to orders_complete_path
   end
-  
+
   def complete
+
   end
 
   def index
+    @orders = Order.all
+    @orders = Order.page(params[:page]).reverse_order
   end
 
   def show
+    @order = Order.find(params[:id])
+    @total_price = @order.order_products.sum(:tax_price) + shipping
   end
 
 

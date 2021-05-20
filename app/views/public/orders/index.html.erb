@@ -1,0 +1,24 @@
+<h2>注文履歴一覧</h2>
+<table>
+  <thead>
+    <tr>
+      <th>購入日時</th>
+      <th>購入者</th>
+      <th>注文商品</th>
+      <th>注文ステータス</th>
+      <th>注文詳細</th>
+    </tr>
+    <tbody>
+      <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+        <td><%= order.customer.last_name + order.customer.first_name %></td>
+        <td><%#= order.order_products %></td>
+        <td><%= order.order_status %></td>
+        <td><%= link_to("表示する","/orders/#{order.id}") %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </thead>
+</table>
+<%= paginate @orders %>
