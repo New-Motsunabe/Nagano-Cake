@@ -6,7 +6,6 @@
       <div class="col-md-5">
         <%=  attachment_image_tag(@product, :image, :fill, 300, 300, fallback: "Nagano Cake.png") %>
       </div>
-
         <div class="col-md-7">
         <div class="field">
           <p>商品名    <%= @product.name %></p>
@@ -35,8 +34,6 @@
       </div>
     </div>
   </div>
-
-
           <div class="edit-btn">
 	      		<%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-success pull-right" %>
       	  </div>
