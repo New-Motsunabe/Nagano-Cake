@@ -36,6 +36,6 @@ class Admin::ProductsController < ApplicationController
 
    private
   def product_params
-    params.require(:product).permit(:genre_id, :name, :introduction, :price, :is_active, :image_id)
+    params.require(:product).permit(:genre_id, :name, :introduction, :price, :is_active, :image)
   end
 end
