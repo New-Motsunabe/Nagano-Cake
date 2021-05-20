@@ -6,6 +6,8 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :orders, dependent: :destroy
+
 
   validates :last_name, presence: true
   validates :kana_last_name, presence: true
@@ -19,6 +21,7 @@ class Customer < ApplicationRecord
     super && (is_deleted == false)
   end
 
-
-
 end
+
+
+
