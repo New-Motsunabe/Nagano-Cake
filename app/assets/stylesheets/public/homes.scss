@@ -35,6 +35,7 @@
 
 .recommended-products {
   display: flex;
+  margin: 0 auto;
 }
 
 .about {
@@ -69,4 +70,15 @@
 .about-sign-up {
   background-color: white;
 }
+
+.recommend {
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.recommended-product-box {
+  width: 25%;
+  margin: 5px;
+}
+
 
