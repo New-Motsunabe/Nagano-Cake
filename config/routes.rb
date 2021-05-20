@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     resources :shipping_addresses
     resources :products
     resources :cart_items
+    resources :orders
   end
 
 
