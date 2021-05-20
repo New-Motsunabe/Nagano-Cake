@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-12">
       <h2>商品一覧</h2>
-      <table class="table table-striped">
+      <table class="table">
         <thead>
           <tr class="info">
             <th>商品ID</th>
@@ -15,18 +15,18 @@
         <tbody>
           <% @products. each do |product| %>
             <tr class="info">
-              <td class="col-md-2"><%= product.id %></td>
-              <td class="col-md-3">
+              <td><%= product.id %></td>
+              <td>
                 <%= link_to admin_product_path(product.id) do  %>
                   <%= product.name %>
                 <% end %>
               </td>
-              <td class="col-md-2"><%= product.price %></td>
-              <td class="col-md-3"><%= product.genre.genre_name %></td>
-              <td class="col-md-2">
+              <td><%= product.price %></td>
+              <td><%= product.genre.genre_name %></td>
+              <td>
                 <% if product.is_active == true %>
                   <p>販売中</p>
-                else
+                <% else %>
                   <p>販売停止中</p>
                 <% end %>
             </tr>
