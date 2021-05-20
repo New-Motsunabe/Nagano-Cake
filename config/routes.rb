@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       resources :ordered_products
   end
 
+
   scope module: :public do
     resource :customers
     resources :shipping_addresses
@@ -39,7 +40,8 @@ Rails.application.routes.draw do
     resources :cart_items
   end
 
-  # resources :cart_items
+
+  resources :cart_items
   resources :orders
   resources :ordered_products
 
