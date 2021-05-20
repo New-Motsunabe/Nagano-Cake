@@ -1,8 +1,12 @@
 class Product < ApplicationRecord
-  belongs_to :genres, dependent: :destroy
+  belongs_to :genre, dependent: :destroy
+  
+    def tax_price
+        (self.price * 1.1).round
+    end
 
   attachment :image, destroy: false
-   
+
   validates :genre_id, presence: true
   validates :name, presence: true
   validates :introduction, presence: true
