@@ -1,5 +1,11 @@
 class Product < ApplicationRecord
-  has_many :genres, dependent: :destroy
+
+  belongs_to :genre, dependent: :destroy
+  
+    def tax_price
+        (self.price * 1.1).round
+    end
+
 
   attachment :image, destroy: false
 

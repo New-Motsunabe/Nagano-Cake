@@ -1,15 +1,18 @@
 <div class="container">
   <div class="row">
     <div class="col-md-7">
-      <%=  attachment_image_tag(@product), :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %>
+      <%=  attachment_image_tag(@product, :image, :fill, 100, 100, fallback: "Nagano Cake.png") %>
+
       <h2><%= @product.name %></h2>
       <p><%= @product.introduction %></p>
-      <p>¥<%= product.tax_price.to_s(:delimited) %><span>(税込)</span></p>
+      <!--tax_priceのカラムがないので表示できない-->
+      <p>¥<%= @product.tax_price.to_s(:delimited) %><span>(税込)</span></p>
     </div>
     <div class="cart-field col-md-5">
       <%= form_for @cart_item, url: cart_items_path(@cart_item), method: :post do |f| %>
         <div class="cart-form-group">
-          <%= f.select :amount, placeholder: "個数選択" %>
+          <%= f.select :amount, options_for_select((1..10).to_a), include_blank: "個数選択" %>
+          <%= f.hidden_field :product_id, :value => @product.id %>
         </div>
         <div class="cart-form-group">
           <%= f.submit "カートに入れる" ,class: 'btn btn-primary' %>

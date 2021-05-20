@@ -3,4 +3,6 @@ class CartItem < ApplicationRecord
   belongs_to :customer
 
   attachment :image, destroy: false
+
+   validates :amount, presence: true
 end
