@@ -1,11 +1,16 @@
 class Product < ApplicationRecord
 
   belongs_to :genre, dependent: :destroy
-  
+
     def tax_price
         (self.price * 1.1).round
     end
 
+<<<<<<< HEAD
+=======
+  has_many :ordered_products, dependent: :destroy
+
+>>>>>>> origin/develop
 
   attachment :image, destroy: false
 
