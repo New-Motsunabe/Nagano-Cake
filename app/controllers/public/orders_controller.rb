@@ -1,4 +1,5 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_customer!
 
   def new
     @order = Order.new
@@ -23,15 +24,17 @@ class Public::OrdersController < ApplicationController
      @order.address_name = params[:order][:address_name]
     end
     @cart_items = CartItem.find_by(customer_id: current_customer.id)
+
   end
 
   def create
     @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
     #@ordered_product = OrderedProduct.find(params[:ordered_product.id])
     @order.save
     redirect_to orders_complete_path
   end
-  
+
   def complete
   end
 

@@ -1,4 +1,6 @@
 class Admin::OrderedProductsController < ApplicationController
+  
+  
   def update
    order = Order.find(params[:order_id])  
    ordered_product = order.ordered_product

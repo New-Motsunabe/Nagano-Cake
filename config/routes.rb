@@ -69,7 +69,7 @@ Rails.application.routes.draw do
   get "orders/:id" => "public/orders#show"
   post "orders" => "public/orders#create"
   post "orders/confirm" => "public/orders#confirm"
-  get "orders/complete" => "public/orders#complete"
+  post 'orders/complete' => "public/orders#complete"
 
   get "customers/my_page" => "public/customers#show"
 
