@@ -13,11 +13,14 @@
       <tr>
         <td><%= order.created_at.strftime("%Y-%m-%d") %></td>
         <td><%= order.postal_code %> <%= order.residence %><%= order.address_name %></td>
+
+=======
         <td>
           <% @products.each do |product| %>
           <%= product.name %>
           <% end %>
         </td>
+
         <td><%= order.order_status %></td>
         <td><%= link_to("表示する","/orders/#{order.id}") %></td>
       </tr>

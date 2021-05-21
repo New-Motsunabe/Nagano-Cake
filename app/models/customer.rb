@@ -7,7 +7,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :orders, dependent: :destroy
-
+  has_many :cart_items
 
   validates :last_name, presence: true
   validates :kana_last_name, presence: true, format: { with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/}
@@ -24,7 +24,7 @@ class Customer < ApplicationRecord
     super && (is_deleted == false)
   end
 
-  has_many :cart_items
+
 end
 
 
