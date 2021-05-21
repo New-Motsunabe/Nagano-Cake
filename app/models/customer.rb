@@ -21,6 +21,7 @@ class Customer < ApplicationRecord
     super && (is_deleted == false)
   end
 
+  has_many :cart_items
 end
 
 

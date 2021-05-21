@@ -52,16 +52,19 @@ Rails.application.routes.draw do
   scope module: :public do
     resource :customers
     resources :products
-    resources :cart_items
+    delete "cart_items/destroy_all" => "cart_items#destroy_all", as: "cart_items_destroy_all"
+    resources :cart_items, only: [:index, :update, :create, :destroy]
+    resources :orders
     resources :ordered_products
   end
+
 
 
   get "customers/unsubscribe" => "public/customers#unsubscribe"
   patch "customers/withdraw" => "public/customers#withdraw"
   post "customers/withdraw" => "public/customers#withdraw"
 
-  delete "cart_items/destroy_all" => "public/cart_items#destroy_all"
+
 
 
   get "orders/new" => "public/orders#new"
