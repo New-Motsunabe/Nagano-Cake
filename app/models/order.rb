@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   belongs_to :customer
   has_many :ordered_products, dependent: :destroy
   # has_many :products, class_name: "OrderedProduct", foreign_key: "product_id", dependent: :destroy
-  has_many :products, through: :ordered_products, source: :product
+  has_many :order_products, through: :ordered_products, source: :product
 
   # has_many :ordered_products, through: :products, source: :order
 

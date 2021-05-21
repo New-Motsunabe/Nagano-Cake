@@ -40,8 +40,8 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = Order.where(customer_id: current_customer.id)
-    @products = Product.where(order_id: params[:id])
-    @ordered_products = @order.products
+    @products = OrderedProduct.find(params[:id]).orders.flat_map(&:products)
+
   end
 
   def show
