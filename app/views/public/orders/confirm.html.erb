@@ -7,9 +7,24 @@
       <th>数量</th>
       <th>小計</th>
     </tr>
-
+     <tbody>
+      <% @cart_items.each do |cart_item| %>
+      <tr>
+        <td><%= cart_item.product.name %></td>
+        <td><%= cart_item.product.tax_price %></td>
+        <td><%= cart_item.amount %></td>
+        <td><%= cart_item.product.tax_price*cart_item.products.count %></td>
+      </tr>
+      <% end %>
+    </tbody>
   </thead>
 </table>
+
+<%= form_with model:@cart_item,url: {action: :create}, method: :post,local:true do |f| %>
+<%= f.hidden_field :name, value: @cart_item.product.name %>
+<%= f.hidden_field :tax_price, value: @cart_item.product.tax_price  %>
+<%= f.hidden_field :amount, value: @cart_item.amount %>
+
 
 <p>支払い方法</p><%= @order.payment_method %>
 <p>お届け先</p><p>〒<%= @order.postal_code %></p><%= @order.residence %><br>

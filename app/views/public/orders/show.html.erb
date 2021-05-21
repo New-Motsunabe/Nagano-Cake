@@ -1,5 +1,6 @@
 <h2>注文履歴詳細</h2>
 
+<h3>注文情報</h3>
 <table>
 <tr>
 <th>購入者</th>
@@ -7,35 +8,30 @@
 </tr>
 <tr>
 <th>注文日</th>
-<td><%= @order.created_at %></td>
+<td><%= @order.created_at.strftime("%Y-%m-%d") %></td>
 </tr>
 <tr>
 <th>配送先</th>
-<td><%= @order.shipping_address %></td>
+<td><%= @order.postal_code %> <%= @order.residence %><%= @order.address_name %></td>
 </tr>
 <tr>
 <th>支払方法</th>
 <td><% @order.payment_method %></td>
 </tr>
 <tr>
-<th>注文ステータス</th>
-<td>
-  <%= form_with url:admin_order_path(@order),local:true,method: :patch do |f| %>
-  <%= f.select :order_status,Order.order_statuses.keys %>
-  <%= f.submit "更新" %>
-  <% end %>
-  </td>
+<th>ステータス</th>
+<td><% @order.order_status %></td>
 </tr>
 </table>
 
+<h3>注文内容</h3>
 <table>
   <thead>
     <tr>
       <th>商品名</th>
       <th>単価(税込)</th>
-      <th>数量</th>
+      <th>個数</th>
       <th>小計</th>
-      <th>制作ステータス</th>
     </tr>
     <tbody>
       <% @order each do |order| %>
@@ -44,20 +40,25 @@
         <td><%= order.tax_price %></td>
         <td><%= order.ordered_products.amount %></td>
         <td><%= order.tax_price*ordered_products.amount %></td>
-        <td>
-          <%= form_with url:admin_ordered_product_path(order.ordered_product),local:true,method: :patch do |f| %>
-          <%= f.select :work_status,OrderedProduct.work_statuses.keys %>
-          <%= f.submit "更新" %>
-          <% end %>
-        </td>
       </tr>
       <% end %>
     </tbody>
   </thead>
 </table>
 
-<div>
-  <p>商品合計<%= @order.order_products.sum(:tax_price) %></p>
-  <p>送料<%= order.shipping %></p>
-  <p>請求金額合計<%= @total_price %></p>
-</div>
+<h3>請求情報</h3>
+<table>
+<tr>
+<th>商品合計</th>
+<td><%= @order.order_products.sum(:tax_price) %></td>
+</tr>
+<tr>
+<th>送料</th>
+<td><%= @order.shipping %></td>
+</tr>
+<tr>
+<th>ご請求額</th>
+<td><%= @order.total_price %></td>
+</tr>
+</table>
+

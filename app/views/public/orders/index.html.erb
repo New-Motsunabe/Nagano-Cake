@@ -11,9 +11,9 @@
     <tbody>
       <% @orders.each do |order| %>
       <tr>
-        <td><%= order.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
-        <td><%= order.customer.last_name + order.customer.first_name %></td>
-        <td><%#= order.order_products %></td>
+        <td><%= order.created_at.strftime("%Y-%m-%d") %></td>
+        <td><%= order.postal_code %> <%= order.residence %><%= order.address_name %></td>
+        <td><%= order.order_products %></td>
         <td><%= order.order_status %></td>
         <td><%= link_to("表示する","/orders/#{order.id}") %></td>
       </tr>
