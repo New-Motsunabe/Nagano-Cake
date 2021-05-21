@@ -1,20 +1,14 @@
 <div class="container">
-<<<<<<< HEAD
   <%= flash[:notice] %>
-=======
   <h2>商品一覧<span>(全<%= @quantity %>件)</span></h2>
->>>>>>> origin/develop
   <div class="row">
     <div class="product_container">
         <% @products.each do |product| %>
         <div class="product-items">
         <%= link_to product_path(product.id) do %>
-<<<<<<< HEAD
-          <%= attachment_image_tag(product, :image, :fill, 100, 100, fallback: "Nagano Cake.png") %><br>
-
-=======
+           <!--attachment_image_tag(product, :image, :fill, 100, 100, fallback: "Nagano Cake.png") -->
+            <!--２つあったので1つコメントアウト-->
           <%= attachment_image_tag(product, :image, :fill, 170, 170, fallback: "Nagano Cake.png") %><br>
->>>>>>> origin/develop
         <% end %>
         <p><%= product.name %></p>
         <!--tax_priceのカラムがないので表示できない-->

@@ -21,11 +21,8 @@ class Customer < ApplicationRecord
     super && (is_deleted == false)
   end
 
-<<<<<<< HEAD
   has_many :cart_items
-=======
 end
->>>>>>> origin/develop
 
 
 
