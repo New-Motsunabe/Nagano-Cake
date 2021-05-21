@@ -47,6 +47,7 @@ Rails.application.routes.draw do
 
 
 
+
   get "customers/my_page" => "public/customers#show"
 
   root to: "public/homes#top"
@@ -55,11 +56,11 @@ Rails.application.routes.draw do
 
   get "/admin" => "admin/homes#top"
 
-get "shipping_addresses" => "public/shipping_addresses#index"
-post "shipping_addresses" => "public/shipping_addresses#create"
-get "shipping_addresses/:id/edit" => "public/shipping_addresses#edit"
-patch "shipping_addresses/:id" => "public/shipping_addresses#update"
-delete "shipping_addresses/:id" => "public/shipping_addresses#destroy"
+  get "shipping_addresses" => "public/shipping_addresses#index"
+  post "shipping_addresses" => "public/shipping_addresses#create"
+  get "shipping_addresses/:id/edit" => "public/shipping_addresses#edit"
+  patch "shipping_addresses/:id" => "public/shipping_addresses#update"
+  delete "shipping_addresses/:id" => "public/shipping_addresses#destroy"
 
 
 end
