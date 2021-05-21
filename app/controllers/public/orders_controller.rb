@@ -41,22 +41,23 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
+    @orders = Order.where(customer_id: current_customer.id)
     @orders = Order.page(params[:page]).reverse_order
     @ordered_products = OrderedProduct.where(ordered_product_id: params[:order_id])
     #@orders.ordered_products = @ordered_products
     #@orders.ordered_products = @ordered_products
 
 
-    @orders = Order.where(customer_id: current_customer.id)
-    @products = Product.where(order_id: params[:id])
-    @ordered_products = @order.products
+    #@orders = Order.where(customer_id: current_customer.id)
+    #@products = Product.where(order_id: params[:id])
+    #@ordered_products = @order.products
 
   end
 
   def show
     @order = Order.find(params[:id])
-    @total_price = @order.order_products.sum(:tax_price) + shipping
+    @total = @ordered_products.sum{|ordered_product|ordered_products.product.price * cart_item.amount * 1.1}
+    @total_price = @total + @order.shipping
   end
 
 
