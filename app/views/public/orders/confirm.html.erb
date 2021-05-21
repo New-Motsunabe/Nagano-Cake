@@ -21,6 +21,6 @@
 <%= f.hidden_field :residence, value: @order.residence %>
 <%= f.hidden_field :address_name, value: @order.address_name %>
 <%= f.submit "注文を確定する" %>
+<%= #link_to "注文を確定する",orders_path,method: :post %>
 <% end %>
 
-<%#= link_to "注文を確定する",orders_path,method: :post %>
