@@ -57,21 +57,16 @@ Rails.application.routes.draw do
     resources :ordered_products
   end
 
-
-
   get "customers/unsubscribe" => "public/customers#unsubscribe"
   patch "customers/withdraw" => "public/customers#withdraw"
   post "customers/withdraw" => "public/customers#withdraw"
 
-
-
-
   get "orders/new" => "public/orders#new"
   get "orders" => "public/orders#index"
-  get "orders/:id" => "public/orders#show"
   post "orders" => "public/orders#create"
   post "orders/confirm" => "public/orders#confirm"
   post 'orders/complete' => "public/orders#complete"
+  
 
   get "customers/my_page" => "public/customers#show"
 
