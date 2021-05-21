@@ -1,5 +1,4 @@
 class Public::OrdersController < ApplicationController
-  before_action :authenticate_customer!
 
   def new
     @order = Order.new
@@ -23,8 +22,10 @@ class Public::OrdersController < ApplicationController
      @order.postal_code = params[:order][:postal_code]
      @order.address_name = params[:order][:address_name]
     end
-    @cart_items = CartItem.find_by(customer_id: current_customer.id)
-
+    @cart_items = CartItem.where(customer_id: current_customer.id)
+    @total = @cart_items.sum{|cart_item|cart_item.product.price * cart_item.amount * 1.1}
+    @product = Product.where(product_id: params[:id])
+    @total_price = @total + @order.shipping
   end
 
   def create
@@ -45,16 +46,27 @@ class Public::OrdersController < ApplicationController
   end
 
   def complete
+
   end
 
   def index
     @orders = Order.where(customer_id: current_customer.id)
     @order = Order.find_by(customer_id: current_customer.id)
     @products = @order.order_products
-    @ordered_product = OrderedProduct.find_by(order_id: params[:id])
+    #@orders.ordered_products = @ordered_products
+    #@orders.ordered_products = @ordered_products
+
+
+    #@orders = Order.where(customer_id: current_customer.id)
+    #@products = Product.where(order_id: params[:id])
+    #@ordered_products = @order.products
+
   end
 
   def show
+    @order = Order.find(params[:id])
+    @total = @ordered_products.sum{|ordered_product|ordered_products.product.price * cart_item.amount * 1.1}
+    @total_price = @total + @order.shipping
   end
 
 
