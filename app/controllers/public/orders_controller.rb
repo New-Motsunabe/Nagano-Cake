@@ -32,6 +32,15 @@ class Public::OrdersController < ApplicationController
     @order.customer_id = current_customer.id
     #@ordered_product = OrderedProduct.find(params[:ordered_product.id])
     @order.save
+    @cart_items = current_customer.cart_items.all
+      @cart_items.each do |cart_item|
+        @ordered_products = @order.ordered_products.new
+        @ordered_products.product_id = cart_item.product.id
+        @ordered_products.tax_price = cart_item.product.price
+        @ordered_products.amount = cart_item.amount
+        @ordered_products.save
+        current_customer.cart_items.destroy_all
+      end
     redirect_to orders_complete_path
   end
 
@@ -40,10 +49,9 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = Order.where(customer_id: current_customer.id)
-    @products = Product.where(order_id: params[:id])
-    @ordered_products = @order.products
-    @products = OrderedProduct.find(params[:id]).orders.flat_map(&:products)
-
+    @order = Order.find_by(customer_id: current_customer.id)
+    @products = @order.order_products
+    @ordered_product = OrderedProduct.find_by(order_id: params[:id])
   end
 
   def show
@@ -53,7 +61,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:payment_method, :residence, :address_name,:postal_code)
+    params.require(:order).permit(:payment_method, :residence, :address_name,:postal_code, :total_price)
   end
 
 
