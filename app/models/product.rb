@@ -1,9 +1,11 @@
 class Product < ApplicationRecord
+
   belongs_to :genre, dependent: :destroy
 
     def tax_price
         (self.price * 1.1).round
     end
+
 
   has_many :ordered_products, dependent: :destroy
 
@@ -16,4 +18,6 @@ class Product < ApplicationRecord
   validates :price, presence: true
   validates :is_active, presence: true
   validates :image, presence: true
+
+  has_many :cart_items, dependent: :destroy
 end
