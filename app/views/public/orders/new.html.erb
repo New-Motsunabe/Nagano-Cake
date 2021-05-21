@@ -1,3 +1,4 @@
+<div class="cotainer">
 <%= form_with model:@order, url:orders_confirm_path, method: :post, local: true do |f| %>
 <%= f.label :payment_method, "支払い方法" %>
 <br>
@@ -13,7 +14,7 @@
 
 <%= f.radio_button :residence_option, 0, checked: "checked" %>
 <%= f.label :residence, "ご自身の住所" ,value: 0 %>
-<%= @customer.postal_code %>
+<p>〒<%= @customer.postal_code %></p>
 <%= @customer.residence %>
 <br>
 <%= f.radio_button :residence_option, 1 %>
@@ -40,3 +41,4 @@
 <%= f.submit "確認画面へ進む" , class:"btn btn-primary" %>
 
 <% end %>
+</div>

@@ -57,7 +57,7 @@
 </table>
 
 <div>
-  <p>商品合計</p>
+  <p>商品合計<%= @total.floor.to_s(:delimited) %></p>
   <p>送料<%= @order.shipping %></p>
   <p>請求金額合計<%= @total_price %></p>
 </div>

@@ -1,6 +1,6 @@
 class Admin::OrdersController < ApplicationController
   before_action :authenticate_admin!
-  
+
   def show
     @order = Order.find(params[:id])
     @total = @ordered_products.sum{|ordered_product|ordered_products.product.price * cart_item.amount * 1.1}
