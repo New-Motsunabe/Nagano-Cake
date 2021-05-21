@@ -9,7 +9,7 @@ class Product < ApplicationRecord
 
   has_many :ordered_products, dependent: :destroy
   # has_many :orders, class_name: "OrderedProduct", foreign_key: "order_id", dependent: :destroy
-  has_many :orders, through: :ordered_products, source: :order
+  has_many :orders, through: :ordered_products
   # has_many :ordereds, through: :orders, source: :product
 
   attachment :image, destroy: false

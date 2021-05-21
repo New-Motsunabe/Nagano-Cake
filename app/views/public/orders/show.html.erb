@@ -34,7 +34,9 @@
       <th>小計</th>
     </tr>
     <tbody>
+
       <% @order. each do |order| %>
+
       <tr>
         <td><%= order.ordered_products.name %></td>
         <td><%= order.tax_price %></td>
