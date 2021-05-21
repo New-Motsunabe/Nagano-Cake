@@ -39,9 +39,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
-    @orders = Order.page(params[:page]).reverse_order
-
+    @orders = Order.where(customer_id: current_customer.id)
+    @products = Product.where(order_id: params[:id])
+    @ordered_products = @order.products
   end
 
   def show
