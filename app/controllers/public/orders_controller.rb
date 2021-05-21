@@ -53,7 +53,6 @@ class Public::OrdersController < ApplicationController
     @orders = Order.where(customer_id: current_customer.id)
     @order = Order.find_by(customer_id: current_customer.id)
     @products = @order.order_products
-   
     #@orders.ordered_products = @ordered_products
     #@orders.ordered_products = @ordered_products
 
