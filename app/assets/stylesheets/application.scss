@@ -70,23 +70,50 @@ header {
   margin-right: 30px;
 }
 
-footer {
-  width: 100%;
-  height: 70px;
-  background-color: #502e2e;
-  margin-top: 50px;
-  height: 50px;
-}
-
-.footer-text {
-  font-family: 'Kosugi Maru', sans-serif;
-  color: #efe2d5;
-  margin-top: 30px;
-  font-size: 15px;
-  text-align: center;
-}
-
 h2 {
   font-family: 'Kosugi Maru', sans-serif;
 }
 
+/* Loading背景画面設定　*/
+#splash {
+/*fixedで全面に固定*/
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background:#fff;
+  text-align:center;
+  color:#fff;
+}
+
+
+
+/* Loading画像中央配置　*/
+#splash_logo{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+}
+
+
+/* fadeUpをするアイコンの動き */
+.fadeUp{
+animation-name: fadeUpAnime;
+animation-duration:0.8s;
+animation-fill-mode:forwards;
+opacity: 1;
+}
+
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+  transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+  transform: translateY(0);
+  }
+}
