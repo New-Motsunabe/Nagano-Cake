@@ -10,11 +10,14 @@ class Customer < ApplicationRecord
 
 
   validates :last_name, presence: true
-  validates :kana_last_name, presence: true
+  validates :kana_last_name, presence: true, format: { with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/}
   validates :first_name, presence: true
-  validates :kana_first_name, presence: true
+  validates :kana_first_name, presence: true, format: {with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/}
+  validates :postal_code, presence: true, format: {with: /\A[0-9]+\z/}
   validates :residence, presence: true
-  validates :phone_number, presence: true
+  validates :phone_number, presence: true, format: {with: /\A[0-9]+\z/}
+
+
 
 
   def active_for_authentication?
