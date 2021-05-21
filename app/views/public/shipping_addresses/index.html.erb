@@ -1,5 +1,6 @@
 
   <h2>配送先一覧・追加</h2>
+  <%= render 'layouts/errors', obj: @shipping_address %>
  <div class="container shipping-container">
 
       <%= form_with model: @shipping_address,url: shipping_addresses_path,local: true do |f| %>

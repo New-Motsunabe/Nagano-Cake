@@ -12,16 +12,24 @@
 }
 
 .home-image {
-  background-image: image-url('alexandra-gornago-_B7shfNUXEA-unsplash.jpg');
   background-size: cover;
   background-position: 0 1130px;
   width: 1000px;
-  height: 350px;
+  height: 400px;
   margin:0 auto;
 }
 
-.empty {
-  height: 240px;
+.image1 {
+  background-image: image-url('alexandra-gornago-_B7shfNUXEA-unsplash.jpg');
+}
+.image2 {
+   background-image: image-url('food-photographer-jennifer-pallian-OfdDiqx8Cz8-unsplash.jpg');
+}
+.image3 {
+   background-image: image-url('karly-gomez-lK1Q5RyD6tc-unsplash.jpg');
+}
+.image4 {
+   background-image: image-url('brooke-lark-pGM4sjt_BdQ-unsplash.jpg');
 }
 
 .home-introduction {
@@ -31,6 +39,7 @@
   margin: 0 auto;
   margin-top: auto;
   font-family: 'Kosugi Maru', sans-serif;
+  margin-top: 30px;
 }
 
 .recommended-products {

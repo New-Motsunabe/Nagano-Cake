@@ -1,4 +1,5 @@
 class Public::ShippingAddressesController < ApplicationController
+  
 
   def index
     @shipping_addresses = current_customer.shipping_addresses

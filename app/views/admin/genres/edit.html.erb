@@ -1,5 +1,6 @@
 
     <h2>ジャンル編集</h2>
+    <%= render 'layouts/errors', obj: @genre %>
     　<div class="container genre-container">
 
         　<%= form_with model: @genre,url: admin_genre_path,local: true do |f| %>
