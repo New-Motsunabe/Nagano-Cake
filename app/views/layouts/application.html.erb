@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    
+    <% if current_page?(root_path) %>
+      <div id="splash">
+      <div id="splash_logo"><%= image_tag 'Nagano Cake.load.png', class: "d-block w-100 fadeUp"%></div>
+      </div>
+    <% end %>
+
     <%= render 'layouts/header' %>
     <main>
       <%= yield %>

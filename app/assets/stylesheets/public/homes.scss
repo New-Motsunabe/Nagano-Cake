@@ -2,6 +2,48 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* Loading背景画面設定　*/
+#splash {
+/*fixedで全面に固定*/
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background:#fff;
+  text-align: center;
+  color:#fff;
+}
+
+/* Loading画像中央配置　*/
+#splash_logo{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width:350px;
+}
+
+/* fadeUpをするアイコンの動き */
+.fadeUp{
+animation-name: fadeUpAnime;
+animation-duration:0.8s;
+animation-fill-mode:forwards;
+opacity: 1;
+}
+
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+  transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+  transform: translateY(0);
+  }
+}
+
+
 .top {
   text-align: center;
 }
@@ -12,24 +54,51 @@
 }
 
 .home-image {
-  background-image: image-url('alexandra-gornago-_B7shfNUXEA-unsplash.jpg');
-  background-size: cover;
-  background-position: 0 1130px;
   width: 1000px;
-  height: 350px;
+  height: 400px;
   margin:0 auto;
 }
 
-.empty {
-  height: 240px;
+#images {
+  height: 100%;
 }
+
+.cake {
+  background-size: cover;
+  background-position: 0 1130px;
+}
+
+.image1 {
+  background-image: image-url('alexandra-gornago-_B7shfNUXEA-unsplash.jpg');
+}
+
+.image2 {
+  background-image: image-url('food-photographer-jennifer-pallian-OfdDiqx8Cz8-unsplash.jpg');
+}
+
+.image3 {
+  background-image: image-url('karly-gomez-lK1Q5RyD6tc-unsplash.jpg');
+}
+
+.d-block {
+  width: 1000px;
+  height: 350px;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+
+/*.empty {
+  height: 240px;
+} */
 
 .home-introduction {
   text-align: center;
   background-color: rgba( 230, 230, 230, 0.8);
   width: 400px;
   margin: 0 auto;
-  margin-top: auto;
+  margin-top: 30px;
   font-family: 'Kosugi Maru', sans-serif;
 }
 
@@ -62,7 +131,6 @@
 }
 
 .about-introduction {
-   background-color: rgba( 250, 250, 250, 0.9);
    width: 1000px;
    margin: 0 auto;
 }
