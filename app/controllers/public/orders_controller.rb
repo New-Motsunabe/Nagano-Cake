@@ -23,7 +23,9 @@ class Public::OrdersController < ApplicationController
      @order.address_name = params[:order][:address_name]
     end
     @cart_items = CartItem.where(customer_id: current_customer.id)
+    @total = @cart_items.sum{|cart_item|cart_item.product.price * cart_item.amount * 1.1}
     @product = Product.where(product_id: params[:id])
+    @total_price = @total + @order.shipping
   end
 
   def create
@@ -42,7 +44,6 @@ class Public::OrdersController < ApplicationController
     @orders = Order.all
     @orders = Order.page(params[:page]).reverse_order
     @ordered_products = OrderedProduct.where(ordered_product_id: params[:order_id])
-    byebug
     #@orders.ordered_products = @ordered_products
     #@orders.ordered_products = @ordered_products
   end

@@ -1,4 +1,5 @@
 class Public::ShippingAddressesController < ApplicationController
+  before_action :authenticate_customer!
 
   def index
     @shipping_addresses = current_customer.shipping_addresses
@@ -35,7 +36,7 @@ class Public::ShippingAddressesController < ApplicationController
   def destroy
     @shipping_address = ShippingAddress.find(params[:id])
 	  @shipping_address.destroy
-    
+
     flash.now[:alert] = "配送先を削除しました"
 	  redirect_to shipping_addresses_path
   end
