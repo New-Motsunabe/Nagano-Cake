@@ -46,6 +46,12 @@ class Public::OrdersController < ApplicationController
     @ordered_products = OrderedProduct.where(ordered_product_id: params[:order_id])
     #@orders.ordered_products = @ordered_products
     #@orders.ordered_products = @ordered_products
+
+
+    @orders = Order.where(customer_id: current_customer.id)
+    @products = Product.where(order_id: params[:id])
+    @ordered_products = @order.products
+
   end
 
   def show
