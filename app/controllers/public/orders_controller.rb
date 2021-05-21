@@ -51,7 +51,6 @@ class Public::OrdersController < ApplicationController
     @orders = Order.where(customer_id: current_customer.id)
     @order = Order.find_by(customer_id: current_customer.id)
     @products = @order.order_products
-    @ordered_product = OrderedProduct.find_by(order_id: params[:id])
   end
 
   def show
