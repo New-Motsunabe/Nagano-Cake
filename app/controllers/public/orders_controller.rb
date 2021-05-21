@@ -22,7 +22,8 @@ class Public::OrdersController < ApplicationController
      @order.postal_code = params[:order][:postal_code]
      @order.address_name = params[:order][:address_name]
     end
-    @cart_items = CartItem.find_by(customer_id: current_customer.id)
+    @cart_items = CartItem.where(customer_id: current_customer.id)
+    @product = Product.where(product_id: params[:id])
   end
 
   def create
