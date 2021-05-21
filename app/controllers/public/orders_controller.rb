@@ -1,4 +1,5 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_customer!
 
   def new
     @order = Order.new
@@ -22,8 +23,8 @@ class Public::OrdersController < ApplicationController
      @order.postal_code = params[:order][:postal_code]
      @order.address_name = params[:order][:address_name]
     end
-    @cart_items = CartItem.where(customer_id: current_customer.id)
-    @product = Product.where(product_id: params[:id])
+    @cart_items = CartItem.find_by(customer_id: current_customer.id)
+
   end
 
   def create
@@ -35,17 +36,18 @@ class Public::OrdersController < ApplicationController
   end
 
   def complete
-
   end
 
   def index
-    @orders = current_customer.orders
-    @orders = Order.page(params[:page]).reverse_order
+
+
+    @orders = Order.where(customer_id: current_customer.id)
+    @products = Product.where(order_id: params[:id])
+    @ordered_products = @order.products
+
   end
 
   def show
-    @order = Order.find(params[:id])
-    @total_price = @order.order_products.sum(:tax_price) + shipping
   end
 
 
