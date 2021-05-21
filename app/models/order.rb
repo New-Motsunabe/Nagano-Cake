@@ -10,6 +10,10 @@ class Order < ApplicationRecord
     "クレジットカード":0,"銀行振込":1
   }
   
+  def total_price
+    
+  end
+  
   def amount
     OrderedProduct.all.sum(:product)
   end  

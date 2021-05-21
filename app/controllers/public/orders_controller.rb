@@ -41,6 +41,10 @@ class Public::OrdersController < ApplicationController
   def index
     @orders = Order.all
     @orders = Order.page(params[:page]).reverse_order
+    @ordered_products = OrderedProduct.where(ordered_product_id: params[:order_id])
+    byebug
+    #@orders.ordered_products = @ordered_products
+    #@orders.ordered_products = @ordered_products
   end
 
   def show
