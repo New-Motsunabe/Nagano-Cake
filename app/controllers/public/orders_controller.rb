@@ -22,23 +22,30 @@ class Public::OrdersController < ApplicationController
      @order.postal_code = params[:order][:postal_code]
      @order.address_name = params[:order][:address_name]
     end
-    @cart_items = CartItem.find_by(customer_id: current_customer.id)
+    @cart_items = CartItem.where(customer_id: current_customer.id)
+    @product = Product.where(product_id: params[:id])
   end
 
   def create
     @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
     #@ordered_product = OrderedProduct.find(params[:ordered_product.id])
     @order.save
     redirect_to orders_complete_path
   end
-  
+
   def complete
+
   end
 
   def index
+    @orders = Order.all
+    @orders = Order.page(params[:page]).reverse_order
   end
 
   def show
+    @order = Order.find(params[:id])
+    @total_price = @order.order_products.sum(:tax_price) + shipping
   end
 
 
