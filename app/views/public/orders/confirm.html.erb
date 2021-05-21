@@ -22,6 +22,6 @@
 <%= f.hidden_field :address_name, value: @order.address_name %>
 <%= f.hidden_field :total_price, value: @order.total_price %>
 <%= f.submit "注文を確定する" %>
+<%= #link_to "注文を確定する",orders_path,method: :post %>
 <% end %>
 
-<%#= link_to "注文を確定する",orders_path,method: :post %>
