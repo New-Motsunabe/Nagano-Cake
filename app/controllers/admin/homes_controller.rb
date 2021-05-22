@@ -6,8 +6,10 @@ class Admin::HomesController < ApplicationController
       when "1"
        @customer = Customer.find(params[:id])
        @orders = @customer.orders
+       @amount = @orders.ordered_products.sum
     else
        @orders = Order.all
+       @amount = @orders.ordered_products.sum
     end
     @orders = Order.page(params[:page]).reverse_order
  end

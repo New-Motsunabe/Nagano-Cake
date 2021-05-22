@@ -12,7 +12,7 @@
       <tr>
         <td><%= order.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
         <td><%= order.customer.last_name + order.customer.first_name %></td>
-        <td><%#= order.order_products.amount %></td>
+        <td><%= order.oramount %></td>
         <td><%= order.order_status %></td>
       </tr>
       <% end %>
