@@ -38,7 +38,7 @@
       <th>制作ステータス</th>
     </tr>
     <tbody>
-      <% @order each do |order| %>
+      <% @order. each do |order| %>
       <tr>
         <td><%= order.ordered_products.name %></td>
         <td><%= order.tax_price %></td>
@@ -57,7 +57,7 @@
 </table>
 
 <div>
-  <p>商品合計<%= @order.order_products.sum(:tax_price) %></p>
+  <p>商品合計<%= @total.floor.to_s(:delimited) %></p>
   <p>送料<%= @order.shipping %></p>
-  <p>請求金額合計<%= @order.total_price %></p>
+  <p>請求金額合計<%= @total_price %></p>
 </div>

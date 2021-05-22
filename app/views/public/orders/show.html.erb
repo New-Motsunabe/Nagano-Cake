@@ -34,7 +34,9 @@
       <th>小計</th>
     </tr>
     <tbody>
-      <% @order each do |order| %>
+
+      <% @order. each do |order| %>
+
       <tr>
         <td><%= order.ordered_products.name %></td>
         <td><%= order.tax_price %></td>
@@ -50,7 +52,7 @@
 <table>
 <tr>
 <th>商品合計</th>
-<td><%= @order.order_products.sum(:tax_price) %></td>
+<td><%= @total.floor.to_s(:delimited) %></td>
 </tr>
 <tr>
 <th>送料</th>
@@ -58,7 +60,7 @@
 </tr>
 <tr>
 <th>ご請求額</th>
-<td><%= @order.total_price %></td>
+<td><%= @total_price.floor.to_s(:delimited)  %></td>
 </tr>
 </table>
 
