@@ -10,8 +10,12 @@
 }
 
 .product-items {
-  margin-top: 10px;
-  width: 25%;
+  margin-right: 65px;
+  width: 20%;
+}
+
+.product-items:nth-child(4n) {
+  margin-right: 0;
 }
 
 .product-info {
@@ -26,3 +30,4 @@
 .productshow-container {
   margin: 0 auto;
 }
+
