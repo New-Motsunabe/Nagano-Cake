@@ -2,8 +2,7 @@ class Admin::OrderedProductsController < ApplicationController
 
 
   def update
-   order = Order.find(params[:order_id])
-   ordered_product = order.ordered_product
+   ordered_product = OrderedProduct.find(params[[:id])
    ordered_product.update(ordered_product_params)
    redirect_back(fallback_location: root_path)
   end

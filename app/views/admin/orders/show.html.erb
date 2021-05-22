@@ -3,7 +3,7 @@
 <table>
 <tr>
 <th>購入者</th>
-<td><%= @order.customer.first_name + @order.customer.last_name %></td>
+<td><%= @order.customer.last_name + @order.customer._name %></td>
 </tr>
 <tr>
 <th>注文日</th>
@@ -20,7 +20,7 @@
 <tr>
 <th>注文ステータス</th>
 <td>
-  <%= form_with url:admin_order_path(@order),local:true,method: :patch do |f| %>
+  <%= form_with model: @order, url:admin_order_path(@order),local:true,method: :patch do |f| %>
   <%= f.select :order_status,Order.order_statuses.keys %>
   <%= f.submit "更新" %>
   <% end %>
@@ -45,7 +45,7 @@
         <td><%= ordered_product.amount %></td>
         <td><%= ordered_product.tax_price*ordered_product.amount %></td>
         <td>
-          <%= form_with url:admin_ordered_product_path(ordered_product),local:true,method: :patch do |f| %>
+          <%= form_with model: @ordered_product,url:admin_ordered_product_path(ordered_product.id),local:true,method: :patch do |f| %>
           <%= f.select :work_status,OrderedProduct.work_statuses.keys %>
           <%= f.submit "更新" %>
           <% end %>
