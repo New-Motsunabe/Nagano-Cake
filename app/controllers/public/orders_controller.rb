@@ -57,10 +57,9 @@ class Public::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @ordered_product = OrderedProduct.where(order_id: params[:id])
-    @ordered_product.each do |ordered_product|
-      @prices = ordered_product.tax_price * ordered_product.amount
-      # @total_price = @price.all.sum()
-    end
+    # @ordered_product.each do |ordered_product|
+    #   ordered_product.tax_price * ordered_product.amount
+    # end
   end
 
 
