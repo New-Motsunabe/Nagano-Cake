@@ -6,5 +6,6 @@ class OrderedProduct < ApplicationRecord
   }
 
 
+
 end
 
