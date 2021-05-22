@@ -3,7 +3,7 @@
 <table>
 <tr>
 <th>購入者</th>
-<td><%= @order.customer.name %></td>
+<td><%= @order.customer.first_name + @order.customer.last_name %></td>
 </tr>
 <tr>
 <th>注文日</th>
@@ -38,14 +38,14 @@
       <th>制作ステータス</th>
     </tr>
     <tbody>
-      <% @order. each do |order| %>
+      <% @ordered_product.each do |ordered_product| %>
       <tr>
-        <td><%= order.ordered_products.name %></td>
-        <td><%= order.tax_price %></td>
-        <td><%= amount %></td>
-        <td><%= order.tax_price*ordered_products.amount %></td>
+        <td><%= ordered_product.product.name %></td>
+        <td><%= ordered_product.tax_price %></td>
+        <td><%= ordered_product.amount %></td>
+        <td><%= ordered_product.tax_price*ordered_product.amount %></td>
         <td>
-          <%= form_with url:admin_ordered_product_path(order.ordered_product),local:true,method: :patch do |f| %>
+          <%= form_with url:admin_ordered_product_path(ordered_product),local:true,method: :patch do |f| %>
           <%= f.select :work_status,OrderedProduct.work_statuses.keys %>
           <%= f.submit "更新" %>
           <% end %>
@@ -57,7 +57,7 @@
 </table>
 
 <div>
-  <p>商品合計<%= @total.floor.to_s(:delimited) %></p>
+  <p>商品合計<%#= @ordered_product.tax_price * @ordered_product.amount * 1.1 %></p>
   <p>送料<%= @order.shipping %></p>
-  <p>請求金額合計<%= @total_price %></p>
+  <p>請求金額合計<%#=@ordered_product.tax_price * @ordered_product.amount * 1.1 +  @order.shipping%></p>
 </div>
