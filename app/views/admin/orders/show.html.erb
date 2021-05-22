@@ -1,6 +1,8 @@
+<div class="container">
+  <div class="row">
 <h2>注文履歴詳細</h2>
 
-<table>
+<table class="table">
 <tr>
 <th>購入者</th>
 <td><%= @order.customer.last_name + @order.customer.first_name %></td>
@@ -15,20 +17,20 @@
 </tr>
 <tr>
 <th>支払方法</th>
-<td><% @order.payment_method %></td>
+<td><%= @order.payment_method %></td>
 </tr>
 <tr>
 <th>注文ステータス</th>
 <td>
   <%= form_with model: @order, url:admin_order_path(@order),local:true,method: :patch do |f| %>
   <%= f.select :order_status,Order.order_statuses.keys %>
-  <%= f.submit "更新" %>
+  <%= f.submit "更新",class:"btn btn-success" %>
   <% end %>
   </td>
 </tr>
 </table>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>商品名</th>
@@ -47,7 +49,7 @@
         <td>
           <%= form_with model: ordered_product,url:admin_ordered_product_path(ordered_product.id),local:true,method: :patch do |f| %>
           <%= f.select :work_status,OrderedProduct.work_statuses.keys %>
-          <%= f.submit "更新" %>
+          <%= f.submit "更新",class:"btn btn-success" %>
           <% end %>
         </td>
       </tr>
@@ -56,8 +58,21 @@
   </thead>
 </table>
 
-<div>
-  <p>商品合計<%= @total %></p>
-  <p>送料<%= @order.shipping %></p>
-  <p>請求金額合計<%= @total_price %></p>
+<div class="row-md-2 -md-offset-5 pull-left">
+<table class="table">
+  <tr>
+    <th>商品合計</th>
+    <td><%= @total %></td>
+  </tr>
+ <tr>
+    <th>送料</th>
+    <td><%= @order.shipping %></td>
+  </tr>
+  <tr>
+    <th>請求金額合計</th>
+    <td><%= @total_price %></td>
+  </tr>
+</table>
+</div>
+</div>
 </div>

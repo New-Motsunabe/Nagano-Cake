@@ -36,15 +36,19 @@
 </tr>
 </table>
 
-<%#= form_with(model:[@cart_item, @product],local:true) do |f| %>
-<%#= f.hidden_field :name, value: @cart_item.name %>
-<%#= f.hidden_field :tax_price, value: @cart_item.tax_price  %>
-<%#= f.hidden_field :amount, value: @cart_item.amount %>
-<%# end %>
 
-<p>支払い方法</p><%= @order.payment_method %>
-<p>お届け先</p><p>〒<%= @order.postal_code %></p><%= @order.residence %><br>
-<%= @order.address_name %>
+<table class="table">
+<tr>
+<th>支払い方法</th>
+<td><%= @order.payment_method %></td>
+</tr>
+<tr>
+<th>お届け先</th>
+<td>〒<%= @order.postal_code %><%= @order.residence %></td><br>
+<td><%= @order.address_name %></td>
+</tr>
+</table>
+
 
 <%= form_with model:@order,url: {action: :create}, method: :post,local:true do |f| %>
 <%= f.hidden_field :payment_method, value: @order.payment_method %>
@@ -52,7 +56,7 @@
 <%= f.hidden_field :residence, value: @order.residence %>
 <%= f.hidden_field :address_name, value: @order.address_name %>
 <%= f.hidden_field :total_price, value: @total_price %>
-<%= f.submit "注文を確定する" %>
+<%= f.submit "注文を確定する",class: "btn btn-success" %>
 
 
 <% end %>
