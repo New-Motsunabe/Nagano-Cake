@@ -12,6 +12,7 @@ class Admin::OrdersController < ApplicationController
     order = Order.find(params[:id])
 
     order.update(order_params)
+    order.change_work_status
     redirect_back(fallback_location: root_path)
   end
 
