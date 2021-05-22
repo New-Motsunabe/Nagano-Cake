@@ -2,7 +2,7 @@ class Admin::HomesController < ApplicationController
   before_action :authenticate_admin!
 
  def top
-    
+
        @customer = params[:customer_id]
        if @customer
         @orders = Order.where(customer_id: @customer)
@@ -10,7 +10,7 @@ class Admin::HomesController < ApplicationController
        else
         @orders = Order.all
        #@amount = @orders.ordered_products.sum
-        end
+       end
  end
 
 end
