@@ -69,6 +69,9 @@ Rails.application.routes.draw do
   get 'orders/:id' => "public/orders#show"
 
 
+
+
+
   get "customers/my_page" => "public/customers#show"
 
   root to: "public/homes#top"
