@@ -37,7 +37,7 @@ class Public::OrdersController < ApplicationController
       @cart_items.each do |cart_item|
         @ordered_products = @order.ordered_products.new
         @ordered_products.product_id = cart_item.product.id
-        @ordered_products.tax_price = cart_item.product.price
+        @ordered_products.tax_price = cart_item.product.price * 1.1
         @ordered_products.amount = cart_item.amount
         @ordered_products.save
         current_customer.cart_items.destroy_all
@@ -51,22 +51,16 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = Order.where(customer_id: current_customer.id)
-    @order = Order.find_by(customer_id: current_customer.id)
-    @products = @order.order_products
-    #@orders.ordered_products = @ordered_products
-    #@orders.ordered_products = @ordered_products
-
-
-    #@orders = Order.where(customer_id: current_customer.id)
-    #@products = Product.where(order_id: params[:id])
-    #@ordered_products = @order.products
 
   end
 
   def show
     @order = Order.find(params[:id])
-    @total = @ordered_products.sum{|ordered_product|ordered_products.product.price * cart_item.amount * 1.1}
-    @total_price = @total + @order.shipping
+    @ordered_product = OrderedProduct.where(order_id: params[:id])
+    @ordered_product.each do |ordered_product|
+      @prices = ordered_product.tax_price * ordered_product.amount
+      # @total_price = @price.all.sum()
+    end
   end
 
 
