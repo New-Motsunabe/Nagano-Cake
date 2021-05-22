@@ -8,7 +8,7 @@ class Admin::HomesController < ApplicationController
         @orders = Order.where(customer_id: @customer)
        #@amount = @orders.ordered_products.sum
        else
-        @orders = Order.all
+       @orders = Order.all
        #@amount = @orders.ordered_products.sum
        end
  end
