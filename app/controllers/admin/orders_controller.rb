@@ -3,15 +3,14 @@ class Admin::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @ordered_product = OrderedProduct.where(order_id: params[:id])
     #@amount = @order.ordered_products.sum
-    #@total = @ordered_product.sum{|ordered_product|ordered_products.tax_price * ordered_products.amount * 1.1}
+    #@total = @ordre.ordered_products.sum{|ordered_product|ordered_products.tax_price * ordered_products.amount * 1.1}
     #@total_price = @total + @order.shipping
+    @ordered_product = OrderedProduct.where(order_id: params[:id])
   end
 
   def update
-    order = Order.find(params[:id])
-    
+    @order = Order.find(params[:id])
     order.update(order_params)
     redirect_back(fallback_location: root_path)
   end
