@@ -48,10 +48,13 @@
 
 <h3>請求情報</h3>
 <table class="table">
-  <% @ordered_product.each do |ordered_product| %>
   <tr>
     <th>商品合計</th>
-    <td><%= ordered_product.tax_price * ordered_product.amount %></td>
+    <td>
+      <% @ordered_product.each do |ordered_product| %>
+      <%= ordered_product.tax_price * ordered_product.amount %>
+      <% end %>
+    </td>
   </tr>
   <tr>
     <th>送料</th>
@@ -59,8 +62,7 @@
   </tr>
   <tr>
     <th>ご請求額</th>
-    <td><%= ordered_product.tax_price * ordered_product.amount + @order.shipping %></td>
+
   </tr>
-  <% end %>
 </table>
 
