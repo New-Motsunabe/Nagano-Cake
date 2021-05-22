@@ -17,7 +17,6 @@ class Order < ApplicationRecord
     "クレジットカード":0,"銀行振込":1
   }
 
-  
 
 
   def amount
