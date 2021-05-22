@@ -24,7 +24,6 @@ class Order < ApplicationRecord
   end
 
 
-
   def amount
     OrderedProduct.all.sum(:product)
   end
