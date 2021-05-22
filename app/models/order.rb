@@ -17,7 +17,11 @@ class Order < ApplicationRecord
     "クレジットカード":0,"銀行振込":1
   }
 
-  
+  def change_work_status
+    if self.order_status == "入金確認"
+      self.ordered_products.update(work_status: "製作待ち")
+    end
+  end
 
 
   def amount
