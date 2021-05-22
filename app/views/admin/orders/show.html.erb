@@ -57,7 +57,7 @@
 </table>
 
 <div>
-  <p>商品合計<%#= @ordered_product.tax_price * @ordered_product.amount * 1.1 %></p>
+  <p>商品合計<%= @total %></p>
   <p>送料<%= @order.shipping %></p>
-  <p>請求金額合計<%#=@ordered_product.tax_price * @ordered_product.amount * 1.1 +  @order.shipping%></p>
+  <p>請求金額合計<%= @total_price %></p>
 </div>

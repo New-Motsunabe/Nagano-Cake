@@ -3,8 +3,9 @@ class Admin::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @amount = @order.ordered_products.sum
-    @total = @ordre.ordered_products.sum{|ordered_product|ordered_products.tax_price * ordered_products.amount * 1.1}
+
+    @ordered_product = OrderedProduct.where(order_id: params[:id])
+    @total = @ordered_product.sum(:tax_price) * @ordered_product.sum(:amount)
     @total_price = @total + @order.shipping
   end
 
