@@ -51,15 +51,16 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = Order.where(customer_id: current_customer.id)
-    @order = Order.find_by(customer_id: current_customer.id)
-    @products = @order.order_products
+
   end
 
   def show
     @order = Order.find(params[:id])
     @ordered_product = OrderedProduct.where(order_id: params[:id])
-    # @total = @ordered_product.tax_price * @ordered_product.amount
-    # @total_price = @total + @order.shipping
+    @ordered_product.each do |ordered_product|
+      @prices = ordered_product.tax_price * ordered_product.amount
+      # @total_price = @price.all.sum()
+    end
   end
 
 
