@@ -15,7 +15,7 @@
           <% end %>
           </td>
         <td><%= order.customer.last_name + order.customer.first_name %></td>
-        <td><%#= order.amount %></td>
+        <td><%= order.ordered_products.sum(:amount) %></td>
         <td><%= order.order_status %></td>
       </tr>
       <% end %>
