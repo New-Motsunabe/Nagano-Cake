@@ -1,31 +1,31 @@
 <h2>注文履歴詳細</h2>
 
 <h3>注文情報</h3>
-<table>
-<tr>
-<th>購入者</th>
-<td><%= @order.customer.name %></td>
-</tr>
-<tr>
-<th>注文日</th>
-<td><%= @order.created_at.strftime("%Y-%m-%d") %></td>
-</tr>
-<tr>
-<th>配送先</th>
-<td><%= @order.postal_code %> <%= @order.residence %><%= @order.address_name %></td>
-</tr>
-<tr>
-<th>支払方法</th>
-<td><% @order.payment_method %></td>
-</tr>
-<tr>
-<th>ステータス</th>
-<td><% @order.order_status %></td>
-</tr>
+<table class="table">
+  <tr>
+    <th>注文日</th>
+    <td><%= @order.created_at.strftime("%Y-%m-%d") %></td>
+  </tr>
+  <tr>
+    <th>配送先</th>
+    <td>
+      <%= @order.postal_code %> <br>
+      <%= @order.residence %><br>
+      <%= @order.address_name %>
+    </td>
+  </tr>
+  <tr>
+    <th>支払方法</th>
+    <td><%= @order.payment_method %></td>
+  </tr>
+  <tr>
+    <th>ステータス</th>
+    <td><%= @order.order_status %></td>
+  </tr>
 </table>
 
 <h3>注文内容</h3>
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>商品名</th>
@@ -34,12 +34,12 @@
       <th>小計</th>
     </tr>
     <tbody>
-      <% @order each do |order| %>
+      <% @ordered_product.each do |ordered_product| %>
       <tr>
-        <td><%= order.ordered_products.name %></td>
-        <td><%= order.tax_price %></td>
-        <td><%= order.ordered_products.amount %></td>
-        <td><%= order.tax_price*ordered_products.amount %></td>
+        <td><%= ordered_product.product.name %></td>
+        <td><%= ordered_product.tax_price %></td>
+        <td><%= ordered_product.amount %></td>
+        <td><%= ordered_product.tax_price * ordered_product.amount %></td>
       </tr>
       <% end %>
     </tbody>
@@ -47,18 +47,20 @@
 </table>
 
 <h3>請求情報</h3>
-<table>
-<tr>
-<th>商品合計</th>
-<td><%= @order.order_products.sum(:tax_price) %></td>
-</tr>
-<tr>
-<th>送料</th>
-<td><%= @order.shipping %></td>
-</tr>
-<tr>
-<th>ご請求額</th>
-<td><%= @order.total_price %></td>
-</tr>
+<table class="table">
+  <% @ordered_product.each do |ordered_product| %>
+  <tr>
+    <th>商品合計</th>
+    <td><%= ordered_product.tax_price * ordered_product.amount %></td>
+  </tr>
+  <tr>
+    <th>送料</th>
+    <td><%= @order.shipping %></td>
+  </tr>
+  <tr>
+    <th>ご請求額</th>
+    <td><%= ordered_product.tax_price * ordered_product.amount + @order.shipping %></td>
+  </tr>
+  <% end %>
 </table>
 
