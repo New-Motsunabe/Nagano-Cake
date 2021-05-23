@@ -55,6 +55,7 @@ Rails.application.routes.draw do
     delete "cart_items/destroy_all" => "cart_items#destroy_all", as: "cart_items_destroy_all"
     resources :cart_items, only: [:index, :update, :create, :destroy]
     resources :ordered_products
+    resources :shipping_addresses
   end
 
   get "customers/unsubscribe" => "public/customers#unsubscribe"
@@ -80,11 +81,11 @@ Rails.application.routes.draw do
 
   get "/admin" => "admin/homes#top"
 
-get "shipping_addresses" => "public/shipping_addresses#index"
-post "shipping_addresses" => "public/shipping_addresses#create"
-get "shipping_addresses/:id/edit" => "public/shipping_addresses#edit"
-patch "shipping_addresses/:id" => "public/shipping_addresses#update"
-delete "shipping_addresses/:id" => "public/shipping_addresses#destroy"
+#get "shipping_addresses" => "public/shipping_addresses#index"
+#post "shipping_addresses" => "public/shipping_addresses#create"
+#get "shipping_addresses/:id/edit" => "public/shipping_addresses#edit"
+#patch "shipping_addresses/:id" => "public/shipping_addresses#update"
+#delete "shipping_addresses/:id" => "public/shipping_addresses#destroy"
 
 
 end
