@@ -69,10 +69,6 @@ Rails.application.routes.draw do
   get 'orders/complete' => "public/orders#complete"
   get 'orders/:id' => "public/orders#show"
 
-
-
-
-
   get "customers/my_page" => "public/customers#show"
 
   root to: "public/homes#top"
@@ -80,6 +76,7 @@ Rails.application.routes.draw do
 
 
   get "/admin" => "admin/homes#top"
+
 
 #get "shipping_addresses" => "public/shipping_addresses#index"
 #post "shipping_addresses" => "public/shipping_addresses#create"
