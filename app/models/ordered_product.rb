@@ -4,7 +4,7 @@ class OrderedProduct < ApplicationRecord
   enum work_status:{
     "製作不可":0, "製作待ち":1, "製作中":2, "製作完了":4
   }
-
+  
   def change_order_status
     products = self.order.ordered_products
     if self.work_status == "製作中"
@@ -14,6 +14,7 @@ class OrderedProduct < ApplicationRecord
     end
 
   end
-
+  
+    
 end
 
