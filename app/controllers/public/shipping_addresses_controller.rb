@@ -1,6 +1,5 @@
 class Public::ShippingAddressesController < ApplicationController
 
-
   before_action :authenticate_customer!
 
   def index
@@ -11,12 +10,12 @@ class Public::ShippingAddressesController < ApplicationController
   def create
     @shipping_address = ShippingAddress.new(shipping_address_params)
     @shipping_address.customer_id = current_customer.id
-     @shipping_addresses = current_customer.shipping_addresses
+    @shipping_addresses = current_customer.shipping_addresses
     if @shipping_address.save
       flash.now[:notice] = "新規配送先を登録しました"
       redirect_to shipping_addresses_path
     else
-       @shipping_addresses = current_customer.shipping_addresses
+      @shipping_addresses = current_customer.shipping_addresses
       render 'index'
     end
   end
@@ -28,17 +27,16 @@ class Public::ShippingAddressesController < ApplicationController
   def update
     @shipping_address = ShippingAddress.find(params[:id])
 	  if @shipping_address.update(shipping_address_params)
-  	 flash[:success] = "配送先を変更しました"
-     redirect_to shipping_addresses_path
+      flash[:success] = "配送先を変更しました"
+      redirect_to shipping_addresses_path
 	  else
-	   render "edit"
+      render "edit"
 	  end
   end
 
   def destroy
     @shipping_address = ShippingAddress.find(params[:id])
 	  @shipping_address.destroy
-
     flash.now[:alert] = "配送先を削除しました"
 	  redirect_to shipping_addresses_path
   end
@@ -48,7 +46,5 @@ private
   def shipping_address_params
   params.require(:shipping_address).permit(:postal_code, :residence, :address_name)
   end
-
-
 
 end
