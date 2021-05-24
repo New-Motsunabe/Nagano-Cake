@@ -1,43 +1,16 @@
 Rails.application.routes.draw do
-
-
-
-  # scope module: :public do
-  # namespace :public do
-  #   devise_for :customers
-  # end
-
-
-  # devise_scope :customer do
-  #   get 'customers/registrations/edit' => 'public/customers/registrations#edit'
-  #   patch 'customers/registrations' => 'public/customers/registrations#update'
-  #   put 'customers/registrations' => 'public/customers/registrations#update'
-  #   delete 'customers/registrations' => 'public/customers/registrations#destroy'
-  # end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
 
   devise_for :admin, :controllers => {
     :registrations => 'admin/registrations',
     :sessions => 'admin/sessions'
   }
 
-  # scope module: :public do
-  # namespace :public do
-  #   devise_for :customers
-  # end
   devise_for :customers, :controllers => {
     :registrations => 'public/customers/registrations',
     :sessions => 'public/customers/sessions'
   }
 
-  # devise_scope :customer do
-  #   get 'customers/registrations/edit' => 'public/customers/registrations#edit'
-  #   patch 'customers/registrations' => 'public/customers/registrations#update'
-  #   put 'customers/registrations' => 'public/customers/registrations#update'
-  #   delete 'customers/registrations' => 'public/customers/registrations#destroy'
-  # end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin do
       resources :customers
       resources :products

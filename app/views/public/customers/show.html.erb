@@ -1,12 +1,9 @@
-
 <div class="container">
   <h2 class="my_page_tag">マイページ</h2>
-
   <div class="my_page_edit_link">
     <h3>登録情報</h3>
     <span class="link_button"><%= link_to '編集する', edit_customer_registration_path, class: "btn-sm btn-success" %></span>
   </div>
-
   <table class="table">
     <tr>
       <th>名前</th>
@@ -32,16 +29,13 @@
       <th>メールアドレス</th>
       <td><%= current_customer.email %></td>
     </tr>
-
   </table>
-
-   <div class="shipping_adresses_link">
-     <h3>配送先　</h3>
-     <span class="link_button"><%= link_to '一覧を見る', shipping_addresses_path, class: "btn-sm btn-primary" %></span>
-   </div>
-
-   <div class="ordered_link">
-     <h3>注文履歴</h3>
-     <span class="link_button"><%= link_to '一覧を見る', orders_path, class: "btn-sm btn-primary" %></span>
-   </div>
- </div>
+  <div class="shipping_adresses_link">
+    <h3>配送先　</h3>
+    <span class="link_button"><%= link_to '一覧を見る', shipping_addresses_path, class: "btn-sm btn-primary" %></span>
+  </div>
+  <div class="ordered_link">
+    <h3>注文履歴</h3>
+    <span class="link_button"><%= link_to '一覧を見る', orders_path, class: "btn-sm btn-primary" %></span>
+  </div>
+</div>
