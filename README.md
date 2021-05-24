@@ -11,7 +11,7 @@
 <img width="880" alt="スクリーンショット 2021-05-24 14 17 10" src="https://user-images.githubusercontent.com/79855871/119301833-0e8e6600-bc9e-11eb-8f6f-90628f0cf389.png">
 
 # 開発環境
-* Ruby on Rails 5.2.5 Ruby 2.6.3
+Ruby on Rails 5.2.5 Ruby 2.6.3
 # チーム名
 
 # 開発者
