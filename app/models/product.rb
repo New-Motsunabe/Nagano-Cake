@@ -13,9 +13,9 @@ class Product < ApplicationRecord
   validates :price, presence: true
   validates :is_active, presence: true
   validates :image, presence: true
-  
+
   def tax_price #税込価格の計算式
-      (self.price * 1.1).round
+    (self.price * 1.1).round
   end
 
 end
