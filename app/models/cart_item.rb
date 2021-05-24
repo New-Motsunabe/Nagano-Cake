@@ -4,5 +4,5 @@ class CartItem < ApplicationRecord
 
   attachment :image, destroy: false
 
-   validates :amount, presence: true
+  validates :amount, presence: true
 end

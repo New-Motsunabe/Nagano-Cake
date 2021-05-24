@@ -5,7 +5,7 @@ class Admin::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   def after_sign_up_path_for(resource)
-    admin_products_path
+    admin_products_path　
   end
 
   # GET /resource/sign_up
