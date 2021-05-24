@@ -1,34 +1,27 @@
-
-  <h2>配送先一覧・追加</h2>
-  <%= render 'layouts/errors', obj: @shipping_address %>
- <div class="container shipping-container">
-
-      <%= form_with model: @shipping_address,url: shipping_addresses_path,local: true do |f| %>
-      
-
-        <table class="shipping_addres">
-            <tr class="form-group">
-                <td><%= f.label :"郵便番号(ハイフンなし)" ,class: "control-label" %></td>
-                <td><%= f.text_field :postal_code, class: "form-control-static postal_code" %></td>
-            </tr>
-
-            <tr class="form-group">
-                <td><%= f.label :"宛名" ,class: "control-label" %></td>
-                <td><%= f.text_field :address_name, class: "form-control-static name" %></td>
-            </tr>
-
-            <tr class="form-group">
-                <td><%= f.label :"住所" ,class: "control-label" %></td>
-                <td><%= f.text_field :residence, class: "form-control-static shipping-residence" %></td>
-            </tr>
-
-            <tr class="action">
-                <td><%= f.submit '登録する',class: 'btn btn-sm btn-success genre-btn' %></td>
-            </tr>
-        </table>
-      <% end %>
-        <div id="create">
-          <%= render "index", shipping_addresses: @shipping_addresses %>
-        </div>
-   </div>
+<h2>配送先一覧・追加</h2>
+<%= render 'layouts/errors', obj: @shipping_address %>
+<div class="container shipping-container">
+  <%= form_with model: @shipping_address,url: shipping_addresses_path,local: true do |f| %>
+    <table class="shipping_addres">
+      <tr class="form-group">
+        <td><%= f.label :"郵便番号(ハイフンなし)" ,class: "control-label" %></td>
+        <td><%= f.text_field :postal_code, class: "form-control-static postal_code" %></td>
+      </tr>
+      <tr class="form-group">
+        <td><%= f.label :"宛名" ,class: "control-label" %></td>
+        <td><%= f.text_field :address_name, class: "form-control-static name" %></td>
+      </tr>
+      <tr class="form-group">
+        <td><%= f.label :"住所" ,class: "control-label" %></td>
+        <td><%= f.text_field :residence, class: "form-control-static shipping-residence" %></td>
+      </tr>
+      <tr class="action">
+        <td><%= f.submit '登録する',class: 'btn btn-sm btn-success genre-btn' %></td>
+      </tr>
+    </table>
+  <% end %>
+  <div id="create">
+    <%= render "index", shipping_addresses: @shipping_addresses %>
+  </div>
+</div>
 
