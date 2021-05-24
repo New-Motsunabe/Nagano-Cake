@@ -1,58 +1,60 @@
 <div class="cotainer">
   <h2>注文情報入力</h2>
-  
+    <div class="row">
+    <%= form_with model:@order, url:orders_confirm_path, method: :post, local: true do |f| %>
+      <%= f.label :payment_method, "支払い方法" %><br>
+      <div class="col-md-12">
+        <div class="form_group">
+          <%= f.radio_button :payment_method, :"クレジットカード", checked: "checked" %>
+          <%= f.label :payment_method, "クレジットカード" ,value: 0 %><br>
+          <%= f.radio_button :payment_method, :"銀行振込"  %>
+          <%= f.label :payment_method, "銀行振込" ,value: 1%>
+        </div>
+      </div>
+      <%= f.label :residence, "お届け先" %><br>
+      <div class="col-md-12">
+        <div class="form_group">
+          <%= f.radio_button :residence_option, 0, checked: "checked" %>
+          <%= f.label :residence, "ご自身の住所" ,value: 0 %>
+          <div class="col-md-10">
+            <p>
+              〒<%= @customer.postal_code %>  <%= @customer.residence %><br>
+              <%= @customer.last_name + @customer.first_name %>
+            </p>
+          </div>
+        </div>
+        <div class="form_group">
+          <%= f.radio_button :residence_option, 1 %>
+          <%= f.label :residence, "登録済住所から選択" ,value: 1%>
+          <div class="col-md-10">
+            <%= f.collection_select :order_customer_shipping_address , current_customer.shipping_addresses, :id, :residence , :include_blank => "選択してください" %>
+          </div>
+        </div>
+        <div class="form_group">
+          <%= f.radio_button :residence_option, 2 %>
+          <%= f.label :residence, "新しいお届け先" ,value: 2%>
+        </div>
+        <div class="col-md-12">
+          <table>
+            <tr>
+              <td><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></td>
+              <td><%= f.text_field :postal_code %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :residence, "住所" %></td>
+              <td><%= f.text_field :residence %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :address_name, "宛名" %></td>
+              <td><%= f.text_field :address_name %></td>
+            </tr>
+          </table>
+          <%= f.submit "確認画面へ進む" , class:"btn btn-primary" %>
+         <% end %>
+        </div>
+      </div>
+    </div>
 
-<%= form_with model:@order, url:orders_confirm_path, method: :post, local: true do |f| %>
-<%= f.label :payment_method, "支払い方法" %>
-<br>
-<div class="form_group">
-<%= f.radio_button :payment_method, :"クレジットカード", checked: "checked" %>
-<%= f.label :payment_method, "クレジットカード" ,value: 0 %>
-<br>
-<%= f.radio_button :payment_method, :"銀行振込"  %>
-<%= f.label :payment_method, "銀行振込" ,value: 1%>
-</div>
-<br>
+  </div>
 
-
-
-<%= f.label :residence, "お届け先" %>
-<br>
-<div class="form_group">
-<%= f.radio_button :residence_option, 0, checked: "checked" %>
-<%= f.label :residence, "ご自身の住所" ,value: 0 %>
-<p>〒<%= @customer.postal_code %></p>
-<%= @customer.residence %><br>
-<%= @customer.last_name + @customer.first_name %>
-</div>
-<br>
-<div class="form_group">
-<%= f.radio_button :residence_option, 1 %>
-<%= f.label :residence, "登録済住所から選択" ,value: 1%>
-<%= f.collection_select :order_customer_shipping_address , current_customer.shipping_addresses, :id, :address_name , :include_blank => "選択してください" %>
-</div>
-<br>
-<div class="form_group">
-<%= f.radio_button :residence_option, 2 %>
-<%= f.label :residence, "新しいお届け先" ,value: 2%>
-<br>
-</div>
-<div class="form_group">
-<%= f.label :postal_code, "郵便番号(ハイフンなし)" %><br>
-<%= f.text_field :postal_code %>
-</div>
-<br>
-<div class="form_group">
-<%= f.label :residence, "住所" %><br>
-<%= f.text_field :residence %>
-</div>
-<br>
-<div class="form_group">
-<%= f.label :address_name, "宛名" %><br>
-<%= f.text_field :address_name %>
-</div>
-<br>
-<%= f.submit "確認画面へ進む" , class:"btn btn-primary" %>
-<% end %>
-</div>
 </div>

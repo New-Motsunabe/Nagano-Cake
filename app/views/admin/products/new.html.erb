@@ -4,7 +4,7 @@
       <h2>商品新規登録</h2>
       <%= render 'layouts/errors', obj: @product %>
 
-       <%= form_for(@product, url: admin_products_path, method: :post, class: "form-horizontal") do |f| %>
+      <%= form_for(@product, url: admin_products_path, method: :post, class: "form-horizontal") do |f| %>
         <div class="form-group">
           <p><%= f.label :商品画像 %>
           <%= f.attachment_field :image, class: "form-control-file product_image" %></p>

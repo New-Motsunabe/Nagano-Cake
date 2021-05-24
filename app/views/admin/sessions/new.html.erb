@@ -1,25 +1,19 @@
 <div class="container">
   <h2 class="admin_log_in_tag">管理者ログイン</h2>
-
   <%= form_with model:@admin, url: admin_session_path, local: true do |f| %>
-
     <table class="table">
       <tr>
         <th>メールアドレス</th>
         <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
       </tr>
-
       <tr>
         <th>パスワード</th>
         <td><%= f.password_field :password, autocomplete: "current-password" %></td>
       </tr>
-
-
       <tr>
         <th></th>
         <td><%= f.submit "ログイン" %></td>
       </tr>
-
     </table>
   <% end %>
 </div>

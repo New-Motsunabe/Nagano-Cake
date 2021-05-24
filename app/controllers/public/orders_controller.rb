@@ -13,10 +13,10 @@ class Public::OrdersController < ApplicationController
       @order.postal_code = current_customer.postal_code
       @order.address_name = current_customer.last_name + current_customer.first_name
     elsif params[:order][:residence_option] == "1"
-      @shipping_addresses = ShippingAddress.find_by(params[:order][:shipping_address_id])
-      @order.residence = @shipping_addresses.residence
-      @order.postal_code = @shipping_addresses.postal_code
-      @order.address_name = @shipping_addresses.address_name
+      @shipping_address = ShippingAddress.find_by(params[:order][:shipping_address_id])
+      @order.residence = @shipping_address.residence
+      @order.postal_code = @shipping_address.postal_code
+      @order.address_name = @shipping_address.address_name
     else
       @order.residence = params[:order][:residence]
       @order.postal_code = params[:order][:postal_code]
