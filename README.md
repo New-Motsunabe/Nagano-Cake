@@ -1,3 +1,5 @@
+# Nagano_Cake ECサイト
+### DMM WebCamp チーム開発課題
 ![1VwnQNxKCkWgeKsmmWWU1621836893-1621837510](https://user-images.githubusercontent.com/81062671/119306375-0554c780-bca5-11eb-8e45-1d4ea5a53d56.gif)
 
 # 設計
