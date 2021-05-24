@@ -1,7 +1,7 @@
 # 設計
 
 # ER図
-![画像名](2021-05-24 14.17.10.png)
+![画像名](alexandra-gornago-_B7shfNUXEA-unsplash)
 # アプリケーション詳細設定
 ・管理者側
 
