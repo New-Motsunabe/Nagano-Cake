@@ -11,7 +11,7 @@ class Admin::OrdersController < ApplicationController
   def update
     order = Order.find(params[:id])
     order.update(order_params)
-    order.change_work_status　#change_work_statusメソッドはorderモデルに定義してます。
+    order.change_work_status #change_work_statusメソッドはorderモデルに定義してます。
     redirect_back(fallback_location: root_path)
   end
 
