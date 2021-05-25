@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   belongs_to :customer
   has_many :ordered_products, dependent: :destroy
   has_many :order_products, through: :ordered_products, source: :product
-  
+
   validates :customer_id, :payment_method, :address_name, :postal_code, :residence, presence: true
   validates :postal_code,  presence: true, format: {with: /\A[0-9]+\z/}
 
