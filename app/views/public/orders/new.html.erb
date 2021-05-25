@@ -27,7 +27,7 @@
           <%= f.radio_button :residence_option, 1 %>
           <%= f.label :residence, "登録済住所から選択" ,value: 1%>
           <div class="col-md-10">
-            <%= f.collection_select :order_customer_shipping_address , current_customer.shipping_addresses, :id, :residence , :include_blank => "選択してください" %>
+            <%= f.collection_select :shipping_address_id , current_customer.shipping_addresses, :id, :residence , :include_blank => "選択してください" %>
           </div>
         </div>
         <div class="form_group">
