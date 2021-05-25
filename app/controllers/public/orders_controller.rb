@@ -6,17 +6,18 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm #注文情報の確認画面を表示する
-    @order = Order.new(order_params)
+    @order = Order.new
     @order.payment_method = params[:order][:payment_method]
+    
     if params[:order][:residence_option] == "0"
       @order.residence = current_customer.residence
       @order.postal_code = current_customer.postal_code
       @order.address_name = current_customer.last_name + current_customer.first_name
     elsif params[:order][:residence_option] == "1"
-      @shipping_addresses = ShippingAddress.find_by(params[:order][:shipping_address_id])
-      @order.residence = @shipping_addresses.residence
-      @order.postal_code = @shipping_addresses.postal_code
-      @order.address_name = @shipping_addresses.address_name
+      shipping_address = ShippingAddress.find(params[:order][:shipping_address_id])
+      @order.residence = shipping_address.residence
+      @order.postal_code = shipping_address.postal_code
+      @order.address_name = shipping_address.address_name
     else
       @order.residence = params[:order][:residence]
       @order.postal_code = params[:order][:postal_code]
